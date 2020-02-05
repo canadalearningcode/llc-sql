@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Ladies Learning Code</title>
+  <link rel="stylesheet" href="framework/css/inspire.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/fonts.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/highlightjs/github.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/styles.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/a11y/plugin.css" data-noprefix>
+  <link rel="shortcut icon" href="framework/img/favicon.ico">
+
+  <!-- Takes care of CSS3 prefixes -->
+  <script src="framework/scripts/prefixfree.min.js"></script>
+
+  <!-- opens all links in a new window -->
+  <base target="_blank">
+</head>
+
+<body class="en">
+
+  <section class="slide" data-markdown>
+    <script type="text/template">
+      #Ladies Learning Code Slide Template
+
+      Created by [Christina Truong](http://christinatruong.com) for Ladies Learning Code.
+
+      View the slide presentation for instructions regarding content, customization options and style guides.
+
+      <h2>Keyboard Navigation</h2>
+      <ul>
+        <li><kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>↑</kbd> to navigate slides or display items</li>
+        <li><kbd>Ctrl</kbd><kbd>G</kbd> to jump to the specified slide number</li>
+        <li><kbd>Home</kbd> to go to the first slide, <kbd>End</kbd> to go to the last; <br/>Mac keyboard, <kbd>fn</kbd><kbd>→</kbd> and <kbd>fn</kbd><kbd>←</kbd></li>
+        <li><kbd>Ctrl</kbd><kbd>H</kbd> to activate Overview</li>
+      </ul>
+
+      Email questions & comments to <content@ladieslearningcode.com>.
+    </script>
+  </section>
+
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Default Opening Slides</h1>
+    </header>
+
+    <article class="slide welcome highlight">
+      <h1><img class="logo-stacked" src="framework/img/llc-logo-stacked-white.png" alt="Ladies Learning Code logo">Welcome!</h1>
+
+      <div class="instructions">
+        <!-- ADD WIFI INFO HERE -->
+        <h2>Get <br>Connected</h2>
+        <p><strong>Wifi:</strong> wifi network</p>
+        <p><strong>Password:</strong> wifi password</p>
+        <hr>
+
+        <h2>Download<br> & Install</h2>
+        <ol class="downloads">
+          <li>Learner files (zip file): <a href="https://github.com/ladieslearningcode/workshop-repo-name/archive/master.zip">http://bit.ly/create-custom-url</a>
+            <ul>
+              <li>unzip the learner file (<em>extract all</em> if you’re on a PC)</li>
+              <li>open <em>slides.html</em> in the browser to view the slides</li>
+            </ul>
+          </li>
+          <li>Atom Editor: <a href="http://atom.io">http://atom.io</a></li>
+          <li>Chrome Browser: <a href="https://www.google.ca/chrome/browser/desktop/">https://www.google.ca/chrome</a></li>
+          </li>
+        </ol>
+      </div>
+      <footer>
+        <a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="framework/img/cc-by-nc.png" /></a>
+        <p class="left">Content created by <a href="http://christinatruong.com">Christina Truong</a> for <a prefix="cc: http://creativecommons.org/ns#" href="http://ladieslearningcode.com" property="cc:attributionName" rel="cc:attributionURL">Ladies Learning Code</a></p>
+        <p class="right">Use the left <span class="arrow">&#8592;</span> and right <span class="arrow">&#8594;</span> arrow keys to navigate</p>
+      </footer>
+    </article>
+
+    <article class="slide intro">
+      <img class="logo" src="framework/img/llc-logo-white.png" alt="Ladies Learning Code logo">
+      <h1 class="heading-bg">
+        <span>Workshop Title:<br>
+        Second Line if Needed</span>
+      </h1>
+
+      <!-- FILL IN INSTRUCTOR DETAILS -->
+      <img class="instructor" src="http://placehold.it/225x225" alt="Instructor Name">
+      <h2><span class="cursive">with</span> Instructor name</h2>
+      <ul>
+        <li><a href="mailto:">hello@email.com</a></li>
+        <li><a href="http://website.com">website.com</a></li>
+        <li><a href="http://twitter.com/">@twitter</a></li>
+      </ul>
+
+      <div class="sponsor">
+        <p>In partnership with<br> <img src="framework/img/telus-logo-white.svg" alt="Telus"></p>
+      </div>
+      <footer>
+        <a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="framework/img/cc-by-nc.png" /></a>
+        <p class="left">Content created by <a href="http://christinatruong.com">Christina Truong</a> for <a prefix="cc: http://creativecommons.org/ns#" href="http://ladieslearningcode.com" property="cc:attributionName" rel="cc:attributionURL">Ladies Learning Code</a></p>
+        <p class="right">Use the left <span class="arrow">&#8592;</span> and right <span class="arrow">&#8594;</span> arrow keys to navigate</p>
+      </footer>
+    </article>
+  </section>
+
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Template Customizations</h1>
+    </header>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+      #Instructions
+
+      Put all workshop specific images in `framework/img/workshop`.
+
+      All CSS is written in [Sass](http://sass-lang.com/).  Put all specific workshop customizations in `framework/sass/_workshop.scss`.
+
+      To change the background image in the intro slide, there are several images to choose from in `framework/img` or add your own. Make the change in `_workshop.scss`. CSS has already been included.
+
+      The progress bar at the top of the page can be defined by adding the presentation duration, in minutes, in the `data-duration` attribute on the `body` tag.  If you do not want to use it at all, leave the value empty.
+
+      Most of the the links included in the courses are external resources so all links open in a new window/tab by default to allow learners to always have access to the slides.  This feature is included using `<base target="_blank">` in the `head` tag.
+
+      View the rest of the presentation for theme examples and more information about Markdown support and editable in-slide CSS examples.
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Markdown support
+
+        Markdown is a text-to-HTML conversion tool and allows you to write using plain text formatting. See the [Markdown docs](http://daringfireball.net/projects/markdown/) for syntax.
+
+        Because the workshop content is written primarily in Markdown, white space should be preserved. View the readme file for instructions.
+
+        To use Markdown, include the `data-markdown` attribute in the `article` tag and add the content in `script` tags.
+
+        <pre><code>&lt;article class=&quot;slide&quot; data-markdown&gt;
+          &lt;script type=&quot;text/template&quot;&gt;
+            #This is an h1!
+
+            This is a paragraph.
+          &lt;/script&gt;
+        &lt;/article&gt;
+        </code></pre>
+
+        Markdown supports content in HTML as well, so you can switch between using Markdown & HTML in the same slide, with the exception of `script` tags.
+
+        For `script` tags, you will need to escape the brackets.
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Markdown Support
+
+        Code blocks can be added with three back ticks `(```)`.
+
+        Add the language immediately after the first set of back ticks to allow you to specify a language for syntax highlighting. View the HTML source for the below examples to see the markdown formatting.
+
+        ## Javascript Example:
+
+        ```javascript
+        var myJSVariable = "Syntax Highlighting for JavaScript";
+        ```
+
+        ## CSS Example
+        ```css
+        .css-selector {
+          property: value;
+        }
+        ```
+
+        ## HTML Example
+        For HTML, you can set the language to `html` or `xml`.
+
+        ```html
+        <article>
+          <h1>I'm an H1!</h1>
+          <p>This is a paragraph</p>
+        </article>
+        ```
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Markdown Support
+
+        Add an attribute like this:
+
+        ```markdown
+        Text with a class.<!-- .element: class="some-style" -->
+        ```
+        Will be converted to:
+
+        ```html
+        <p class="some-style">Text with a class.</p>
+        ```
+
+        Be sure to place the snippet before any nested elements.
+        ```markdown
+        Text and a <!-- .element: class="some-style" --> [link](http://website.com)
+        ```
+        Will be converted to:
+
+        ```html
+        <p class="some-style">Text and a <a href="http://hakim.se">link</a>.</p>
+        ```
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Syntax Highlighting
+
+        Code highlighting courtesy of [highlight.js](http://highlightjs.org) and will be applied to any code wrapped in `<pre><code></code></pre>`.
+
+        The theme files are located in **framework > css > highlightjs**. Visit [highlight.js](http://highlightjs.org) to see the full list of supported languages, themes and other usage information.
+
+        Using a light theme for slide presentations works better for classroom settings that don't allow for the dimming of lights. Some projectors don't show syntax highlighting on dark backgrounds very well.
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Tools
+
+        Here are some handy tools for creating content.
+
+        Replace special characters with HTML Entities
+        http://www.htmlescape.net/htmlescape_tool.html
+
+        Converts markdown to HTML
+        https://stackedit.io/editor
+
+        Converts HTML to markdown
+        http://domchristie.github.io/to-markdown/
+
+        LICEcap - simple animated screen captures
+        http://www.cockos.com/licecap/
+      </script>
+    </article>
+  </section>
+
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Title Slides</h1>
+    </header>
+
+    <article class="slide title" data-markdown>
+      <script type="text/template">
+        # Title Only
+      </script>
+    </article>
+
+    <article class="slide title" data-markdown>
+      <script type="text/template">
+        # Title
+        ## With a Sub-heading
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Title slides
+
+        For the previous two examples of Title slides, add a `title` class to `<header>` and use an `h1` tag for the main heading and `h2` for a subheading.
+
+        ```html
+        <header class="slide title">
+          <h1>Title Slide Example</h1>
+          <h2>Sub-heading example</h2>
+        </header>
+        ```
+        <pre><code>&lt;header class=&quot;slide title&quot; data-markdown&gt;
+          &lt;script type=&quot;text/template&quot;&gt;
+            # Title Slide
+            ## With a Sub-heading
+          &lt;/script&gt;
+        &lt;/header&gt;
+        </code></pre>
+
+        Also, each slide heading should be an `h1`.
+      </script>
+    </article>
+  </section>
+
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Content Styling</h1>
+    </header>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        # Incremental display of content
+
+        To use, add `class="delayed"` in Markdown or HTML.
+
+        ```markdown
+        * Line 1<!-- .element: class="delayed" -->
+        ```
+        ```html
+        <li class="delayed">Line 1</li>
+        ```
+
+        Use the arrow keys to reveal each line.
+
+        * Line 1<!-- .element: class="delayed" -->
+        * Line 2<!-- .element: class="delayed" -->
+        * Line 3<!-- .element: class="delayed" -->
+
+        <p class="delayed note">Note! You could delay the entire list with `class="delayed-children"`, but it only works with HTML not Markdown.</p>
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Course Outline
+
+        To create a table of contents using slide titles, add `data-toc` to the `<header>` tag of the slide that contains the heading to be included.  Must be an `<h1>` heading. Only add the relevant headings/slides.
+
+        ```html
+        <header class="slide" data-markdown data-toc>
+          #Customizing slides
+        </header>
+        ```
+
+        Then in the slide, add this snippet to generate the list:
+
+        ```html
+        <div class="table-of-contents"></div>
+        ```
+        See the next slide to see the sample Table of Contents.
+      </script>
+    </article>
+
+    <article class="slide two-col-list" data-markdown>
+      <script type="text/template">
+        #Course Outline
+
+        Sample Table of Contents
+
+        <div class="table-of-contents"></div>
+      </script>
+    </article>
+
+    <article class="slide centered" data-markdown>
+      <script type="text/template">
+        #Centered content
+
+        Add a class of `centered` to `<article>`.
+
+        ![](http://cl.ly/image/14193Y1x1f2c/mic-drop.gif)
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #CSS demos
+
+        You can include in-slide CSS demos. In this example, The whole slide will get the CSS applied to it.
+
+        <textarea class="snippet">background-color: lightblue;
+        color: rebeccapurple;</textarea>
+
+        To use, add the CSS example to a `textarea` with a class of `.snippet`. White space will be rendered as well.
+
+        ```html
+        <textarea class="snippet">background-color: lightblue;
+        color: rebeccapurple;</textarea>
+        ```
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #CSS demos
+
+        You can also target specific elements rather than the whole slide.
+
+        <textarea class="snippet" data-subject="#test">color: slateblue;
+        padding: 10px 15px;</textarea>
+
+        <div id="test" class="example">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam nesciunt sint beatae dolor dolorum aliquid quis explicabo vitae numquam.
+        </div>
+
+        In the `<textarea>`, add a `data-subject` attribute with a value that matches the `id` of the element to be targeted.  Also, add `.example` to add the border style. See markup in the HTML source.
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        # Footnotes & small text
+
+        Use the class "note" if you want to leave a note in addition to slide content.
+
+        This is a note! Use this for "gotchas" and additional info.<!-- .element: class="note" -->
+
+        To add a Resources section at the end of bottom of the page, add a horizontal rule, an `h3` heading called "Resources", "Resource" or "Pro tip!"  Use a list or paragraph to add resources.  See HTML source code for syntax.
+
+        ---
+        ###Resources
+        * example 1
+        * example 2
+        * example 3
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        # Default list style
+
+        Unordered list is triggered by `*` in Markdown.
+
+        * Cupcake ipsum dolor sit amet sweet roll.
+        * Carrot cake powder pastry jelly beans fruitcake.
+        * Liquorice gummies caramels powder.
+        * Chocolate bar icing marzipan candy muffin marzipan.
+        * Gummi bears lollipop bear claw toffee sugar plum apple pie carrot cake cotton candy danish.
+
+        ---
+        ###Resources
+        * http://cupcakeipsum.com
+        * http://ladieslearningcode.com
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        # Default ordered list style
+
+        Ordered list is triggered by `1.` in Markdown.
+
+        1. Cupcake ipsum dolor sit amet sweet roll.
+        1. Carrot cake powder pastry jelly beans fruitcake.
+        1. Liquorice gummies caramels powder.
+        1. Chocolate bar icing marzipan candy muffin marzipan.
+        1. Gummi bears lollipop bear claw toffee sugar plum apple pie carrot cake cotton candy danish.
+
+        ---
+        ###Resources
+        1. http://cupcakeipsum.com
+        1. http://ladieslearningcode.com
+      </script>
+    </article>
+
+    <article class="slide nested-list" data-markdown>
+      <script type="text/template">
+        #nested-list
+
+        Add a class of `.nested-list` in the `article` tag.
+
+        * Cupcake ipsum dolor sit amet sweet roll.
+          * Carrot cake powder pastry jelly beans fruitcake.
+          * Gummi bears lollipop bear claw toffee sugar plum apple pie carrot cake cotton candy danish.
+        * Cupcake ipsum
+          1. Chocolate bar icing marzipan candy muffin marzipan.
+          1. Gummi bears lollipop bear claw toffee sugar plum apple pie carrot cake cotton candy danish.
+
+        Just a paragraph.
+
+        ---
+        ###Resources
+        * [WordPress.com and WordPress.org](https://en.support.wordpress.com/com-vs-org/)
+        * http://wordpress.com
+        * http://wordpress.org
+      </script>
+    </article>
+
+    <article class="slide two-col-list" data-markdown>
+      <script type="text/template">
+        #two-col-list
+
+        Nested list displayed in two columns.  Add a class of `.two-col-list` in the `article` tag.
+
+        * Cupcake ipsum dolor
+          * Carrot cake powder pastry
+          * Gummi bears lollipop bear claw toffee sugar plum
+          * apple pie carrot cake cotton candy danish.
+        * Cupcake ipsum
+          1. Chocolate bar icing marzipan candy muffin marzipan.
+          1. Gummi bears lollipop bear claw toffee
+
+        ---
+        ###Resources
+        * [WordPress.com and WordPress.org](https://en.support.wordpress.com/com-vs-org/)
+        * http://wordpress.com
+        * http://wordpress.org
+      </script>
+    </article>
+  </section>
+
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Default Closing Slides</h1>
+    </header>
+
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Next Steps
+
+        [Affiliate info to be included in all presentations. Revise as required.]
+
+        Explore more Ladies Learning Code workshops by following our [Roadmap](http://ladieslearningcode.com/roadmap/).
+
+        ##Getting your site online
+
+        You will need to register a domain name and purchase hosting. Here are some suggestions:
+
+        * [dreamhost.com](http://www.dreamhost.com/r.cgi?2085384) - domains and hosting - use promo code **LLC40** to get $40 off your registration!
+        * [hover.com](http://hover.com/ladiescode) - domains - save 10% with the promo code "learningcode"
+
+        Why keep your domains and hosting separate?<!-- .element: class="note" --> [Learn more about Hover](http://ladieslearningcode.com/getting-hosted-domains-with-hover/).
+
+        You will also need to upload your files to your hosting server. You will need some info usually provided by your hosting service provider: FTP Address, Username, Password.
+
+        Here's a tutorial getting your files online using FileZilla: [FileZilla Client Tutorial](https://wiki.filezilla-project.org/FileZilla_Client_Tutorial_%28en%29)
+      </script>
+    </article>
+
+    <!-- Last slide -->
+    <article class="slide last">
+      <h1>Thank you!</h1>
+      <h2 class="heading-bg">
+        <span>Title of Workshop<br>Second line</span>
+      </h2>
+
+      <img class="instructor" src="http://cl.ly/image/0r3Q3H110G36/profile-generic.jpg" alt="instructor name">
+      <h2><span class="cursive">with</span> Instructor Name</h2>
+      <ul>
+        <li><a href="mailto:">hello@email.com</a></li>
+        <li><a href="#">mywebsite.com</a></li>
+        <li><a href="http://twitter.com/">@twitter</a></li>
+      </ul>
+
+      <p class="attribution">Slide presentation created by <a href="http://christinatruong.com">Christina Truong</a> based on <a href="https://github.com/LeaVerou/csss">Lea Verou's SlideShow</a> and <a href="http://lab.hakim.se/reveal-js/">reveal.js</a>.</p>
+    </article>
+  </section>
+
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Overall Layout</h1>
+    </header>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Slide Template Skeleton
+
+        ```html
+        <section>
+          <header class="slide title" data-toc>
+            <h1>I am Title</h1>
+            <h2>And I am Subtitle</h2>
+          </header>
+
+          <article class="slide">
+            <h1>Slide Title</h1>
+
+            <p>Slide content here in HTML.</p>
+          </article>
+
+          <article class="slide" data-markdown>
+            <script type="text/template">
+              # Slide Title
+
+              Slide content here in Markdown.
+            < /script><!-- intentional space for demo purposes -->
+          </article>
+        </section>
+        ```
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Types of Layout
+
+        * [Course Outline / Agenda](slides.html#slide18)
+        * [Title (with or without subtitle)](slides.html#slide15)
+        * [Centered content](slides.html#slide20)
+        * [Nested lists content](slides.html#slide26)
+        * [Two column content](slides.html#slide27)
+      </script>
+    </article>
+  </section>
+
+  <script src="framework/scripts/jquery-3.4.1.slim.min.js"></script>
+  <script src="framework/scripts/inspire.js"></script>
+
+  <!-- Uncomment the plugins you need -->
+  <script src="framework/scripts/plugins/css-edit.js"></script>
+  <script src="framework/scripts/plugins/css-snippets.js"></script>
+  <script src="framework/scripts/plugins/css-controls.js"></script>
+  <!-- <script src="plugins/code-highlight.js"></script>-->
+
+  <script src="framework/scripts/plugins/markdown/marked.js"></script>
+  <script src="framework/scripts/plugins/markdown/markdown.js"></script>
+  <script src="framework/scripts/plugins/a11y/plugin.js"></script>
+  <script src="framework/scripts/plugins/highlight/highlight-8.4.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="framework/scripts/llc.js"></script>
+</body>
+</html>
