@@ -19,32 +19,7 @@
 </head>
 
 <body class="en">
-
-  <section class="slide" data-markdown>
-    <script type="text/template">
-      #Ladies Learning Code Slide Template
-
-      Created by [Christina Truong](http://christinatruong.com) for Ladies Learning Code.
-
-      View the slide presentation for instructions regarding content, customization options and style guides.
-
-      <h2>Keyboard Navigation</h2>
-      <ul>
-        <li><kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>↑</kbd> to navigate slides or display items</li>
-        <li><kbd>Ctrl</kbd><kbd>G</kbd> to jump to the specified slide number</li>
-        <li><kbd>Home</kbd> to go to the first slide, <kbd>End</kbd> to go to the last; <br/>Mac keyboard, <kbd>fn</kbd><kbd>→</kbd> and <kbd>fn</kbd><kbd>←</kbd></li>
-        <li><kbd>Ctrl</kbd><kbd>H</kbd> to activate Overview</li>
-      </ul>
-
-      Email questions & comments to <content@ladieslearningcode.com>.
-    </script>
-  </section>
-
   <section>
-    <header class="slide title" data-toc>
-      <h1>Default Opening Slides</h1>
-    </header>
-
     <article class="slide welcome highlight">
       <h1><img class="logo-stacked" src="framework/img/llc-logo-stacked-white.png" alt="Ladies Learning Code logo">Welcome!</h1>
 
@@ -63,14 +38,13 @@
               <li>open <em>slides.html</em> in the browser to view the slides</li>
             </ul>
           </li>
-          <li>Atom Editor: <a href="http://atom.io">http://atom.io</a></li>
-          <li>Chrome Browser: <a href="https://www.google.ca/chrome/browser/desktop/">https://www.google.ca/chrome</a></li>
+          <li>SQLite Browser: <a href="https://sqlitebrowser.org/dl/">https://sqlitebrowser.org/dl/</a></li>
           </li>
         </ol>
       </div>
       <footer>
         <a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="framework/img/cc-by-nc.png" /></a>
-        <p class="left">Content created by <a href="http://christinatruong.com">Christina Truong</a> for <a prefix="cc: http://creativecommons.org/ns#" href="http://ladieslearningcode.com" property="cc:attributionName" rel="cc:attributionURL">Ladies Learning Code</a></p>
+        <p class="left">Content created by <a href="https://ca.linkedin.com/in/matt-baum">Matthew Baum</a> for <a prefix="cc: http://creativecommons.org/ns#" href="http://ladieslearningcode.com" property="cc:attributionName" rel="cc:attributionURL">Ladies Learning Code</a></p>
         <p class="right">Use the left <span class="arrow">&#8592;</span> and right <span class="arrow">&#8594;</span> arrow keys to navigate</p>
       </footer>
     </article>
@@ -78,8 +52,7 @@
     <article class="slide intro">
       <img class="logo" src="framework/img/llc-logo-white.png" alt="Ladies Learning Code logo">
       <h1 class="heading-bg">
-        <span>Workshop Title:<br>
-        Second Line if Needed</span>
+        <span>Data Queries with SQL</span>
       </h1>
 
       <!-- FILL IN INSTRUCTOR DETAILS -->
@@ -96,7 +69,7 @@
       </div>
       <footer>
         <a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="framework/img/cc-by-nc.png" /></a>
-        <p class="left">Content created by <a href="http://christinatruong.com">Christina Truong</a> for <a prefix="cc: http://creativecommons.org/ns#" href="http://ladieslearningcode.com" property="cc:attributionName" rel="cc:attributionURL">Ladies Learning Code</a></p>
+        <p class="left">Content created by <a href="https://ca.linkedin.com/in/matt-baum">Matthew Baum</a> for <a prefix="cc: http://creativecommons.org/ns#" href="http://ladieslearningcode.com" property="cc:attributionName" rel="cc:attributionURL">Ladies Learning Code</a></p>
         <p class="right">Use the left <span class="arrow">&#8592;</span> and right <span class="arrow">&#8594;</span> arrow keys to navigate</p>
       </footer>
     </article>
@@ -104,391 +77,172 @@
 
   <section>
     <header class="slide title" data-toc>
-      <h1>Template Customizations</h1>
+      <h1>Introduction</h1>
     </header>
 
     <article class="slide" data-markdown>
       <script type="text/template">
-      #Instructions
+      #Getting Set Up
 
-      Put all workshop specific images in `framework/img/workshop`.
-
-      All CSS is written in [Sass](http://sass-lang.com/).  Put all specific workshop customizations in `framework/sass/_workshop.scss`.
-
-      To change the background image in the intro slide, there are several images to choose from in `framework/img` or add your own. Make the change in `_workshop.scss`. CSS has already been included.
-
-      The progress bar at the top of the page can be defined by adding the presentation duration, in minutes, in the `data-duration` attribute on the `body` tag.  If you do not want to use it at all, leave the value empty.
-
-      Most of the the links included in the courses are external resources so all links open in a new window/tab by default to allow learners to always have access to the slides.  This feature is included using `<base target="_blank">` in the `head` tag.
-
-      View the rest of the presentation for theme examples and more information about Markdown support and editable in-slide CSS examples.
+      1. Install SQLite DB Browser on your machine:
+        * Windows and MacOS: Execute the installer for your system  
+        * Linux: install the **sqlitebrowser** package
+      2. Launch SQLite Browser
+      3. Click "Open Database"
+      4. Navigate to /data/cnf.db inside the course folder you unzipped
+      5. Click "Open"
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+      You should see something like this:
+      ![SQLite Browser image](framework/img/workshop/open_browser.png)
       </script>
     </article>
 
     <article class="slide" data-markdown>
       <script type="text/template">
-        #Markdown support
-
-        Markdown is a text-to-HTML conversion tool and allows you to write using plain text formatting. See the [Markdown docs](http://daringfireball.net/projects/markdown/) for syntax.
-
-        Because the workshop content is written primarily in Markdown, white space should be preserved. View the readme file for instructions.
-
-        To use Markdown, include the `data-markdown` attribute in the `article` tag and add the content in `script` tags.
-
-        <pre><code>&lt;article class=&quot;slide&quot; data-markdown&gt;
-          &lt;script type=&quot;text/template&quot;&gt;
-            #This is an h1!
-
-            This is a paragraph.
-          &lt;/script&gt;
-        &lt;/article&gt;
-        </code></pre>
-
-        Markdown supports content in HTML as well, so you can switch between using Markdown & HTML in the same slide, with the exception of `script` tags.
-
-        For `script` tags, you will need to escape the brackets.
+        #Good to go!
+        Now that we're set up, you can minimize the DB Browser, we'll come back to it later.
       </script>
     </article>
 
     <article class="slide" data-markdown>
       <script type="text/template">
-        #Markdown Support
-
-        Code blocks can be added with three back ticks `(```)`.
-
-        Add the language immediately after the first set of back ticks to allow you to specify a language for syntax highlighting. View the HTML source for the below examples to see the markdown formatting.
-
-        ## Javascript Example:
-
-        ```javascript
-        var myJSVariable = "Syntax Highlighting for JavaScript";
-        ```
-
-        ## CSS Example
-        ```css
-        .css-selector {
-          property: value;
-        }
-        ```
-
-        ## HTML Example
-        For HTML, you can set the language to `html` or `xml`.
-
-        ```html
-        <article>
-          <h1>I'm an H1!</h1>
-          <p>This is a paragraph</p>
-        </article>
-        ```
+        #What is data?
+        Information technology and data are everywhere around us. In fact, more information is generated each year than was
+        ever produced by humanity prior to the Internet. But this begs the question:
+        
+        **"What exactly *is* data?"**
+        
+        What do you think?
       </script>
     </article>
 
     <article class="slide" data-markdown>
       <script type="text/template">
-        #Markdown Support
+        #Data is
 
-        Add an attribute like this:
+        * units of information/facts (people's ages, the prices of homes, etc.)
+        * can be structured (a shopping list, a table like a celendar, etc.)
+        * can have a **type** (a number, some text, etc.)
+        * digital data: can be encoded and stored on a computer, and sent between them
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        # Uses for Data
 
-        ```markdown
-        Text with a class.<!-- .element: class="some-style" -->
-        ```
-        Will be converted to:
+        Now that we have an idea of what data is, can you think of any common uses of data
+        in you daily life?
 
-        ```html
-        <p class="some-style">Text with a class.</p>
-        ```
+        * Email: Sending and recieving textual data<!-- .element: class="delayed" -->
+        * Excel: Storing and analyzing data in tables<!-- .element: class="delayed" -->
+        * Voice calls: Exchanging audio data via phone/the Internet<!-- .element: class="delayed" -->
+        * Video streaming: Reading sequences of image data<!-- .element: class="delayed" -->
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Manipulating Data
+        
+        The various ways in which we can manipulate data are best remembered with the acronym CRUD:
 
-        Be sure to place the snippet before any nested elements.
-        ```markdown
-        Text and a <!-- .element: class="some-style" --> [link](http://website.com)
-        ```
-        Will be converted to:
+        * **C**reate
+        * **R**ead
+        * **U**pdate
+        * **D**elete
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Data Types
+        
+        As we hinted at earlier, data can be interpreted in different ways and classified into **types**.
+        There is no limit to these types, but for our purposes today, we will consider:
 
-        ```html
-        <p class="some-style">Text and a <a href="http://hakim.se">link</a>.</p>
-        ```
+        * **INTEGER**: A whole number like `1`, `2` or `16`
+        * **REAL**: A real (floating point) number, like `3.5`
+        * **TEXT**: A string of characters like `"Hello, world!"`
+        * **NULL**: This value simply represents the absence of data (nothing)
+      </script>
+    </article>
+  </section>
+  
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Databases</h1>
+    </header>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #What is a Database?
+
+        By this point, we have a pretty good idea of what data is, but what is a database?
+        
+        * Organized (structured) data, that can be queried (we can ask questions about the data and receive answers)<!-- .element: class="delayed" -->
+        * Related data (we can link together associated data. Ex.: a person and their job details)<!-- .element: class="delayed" -->
+        * Managed by software that allows multiple users to manipulate the data at once<!-- .element: class="delayed" -->
+        
+        <p>There are many different kinds of databases, but today we will learn about a common type called **relational databases!**</p><!-- .element: class="delayed" -->
       </script>
     </article>
 
     <article class="slide" data-markdown>
       <script type="text/template">
-        #Syntax Highlighting
+        #Relational Databases
 
-        Code highlighting courtesy of [highlight.js](http://highlightjs.org) and will be applied to any code wrapped in `<pre><code></code></pre>`.
-
-        The theme files are located in **framework > css > highlightjs**. Visit [highlight.js](http://highlightjs.org) to see the full list of supported languages, themes and other usage information.
-
-        Using a light theme for slide presentations works better for classroom settings that don't allow for the dimming of lights. Some projectors don't show syntax highlighting on dark backgrounds very well.
+        In a relational database:
+        
+        * **Related** data is stored in a **table**, called a **relation** (ex.: one table can hold data on people, another data on planets)
+        * Each **column** of the table describes an **attribute** of the data (ex.: the first name, last name, height and age of a person)
+        * Each **row** of the table represents a **data object** (ex.: an individual person)
+        * Each row is uniquely identified by an **ID** (ex.: the person's social insurance number)
+        * These IDs are known as **primary keys**
       </script>
     </article>
 
     <article class="slide" data-markdown>
       <script type="text/template">
-        #Tools
+        #Relationships
 
-        Here are some handy tools for creating content.
+        Lines in two tables can be linked together using their primary keys (PK), establishing a **relationship**:
+        
+        <ol>
+          <li>A line in the `PERSON` table describes `Mary`. Her PK is her SIN: `123456789`</li><!-- .element: class="delayed" -->
+          <li>A line in the `CITY` table describes `Montreal`. Its PK is the code: `YUL`</li><!-- .element: class="delayed" -->
+          <li>One column in `PERSON` is `HOMETOWN`. Values in this column **must** PKs from `CITY`</li><!-- .element: class="delayed" -->
+          <li>In Mary's case the value is `YUL`</li><!-- .element: class="delayed" -->
+          <li>Thus data on Mary links to data on her hometown through this **relationship**</li><!-- .element: class="delayed" -->
+        </ol>
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Relational diagram
 
-        Replace special characters with HTML Entities
-        http://www.htmlescape.net/htmlescape_tool.html
-
-        Converts markdown to HTML
-        https://stackedit.io/editor
-
-        Converts HTML to markdown
-        http://domchristie.github.io/to-markdown/
-
-        LICEcap - simple animated screen captures
-        http://www.cockos.com/licecap/
+        Our previous example can be illustrated as:
+        
+        ![Relational diagram](framework/img/workshop/relationship.png)
+        
       </script>
     </article>
   </section>
 
   <section>
     <header class="slide title" data-toc>
-      <h1>Title Slides</h1>
+      <h1>SQL</h1>
     </header>
-
-    <article class="slide title" data-markdown>
-      <script type="text/template">
-        # Title Only
-      </script>
-    </article>
-
-    <article class="slide title" data-markdown>
-      <script type="text/template">
-        # Title
-        ## With a Sub-heading
-      </script>
-    </article>
-
-    <article class="slide" data-markdown>
-      <script type="text/template">
-        #Title slides
-
-        For the previous two examples of Title slides, add a `title` class to `<header>` and use an `h1` tag for the main heading and `h2` for a subheading.
-
-        ```html
-        <header class="slide title">
-          <h1>Title Slide Example</h1>
-          <h2>Sub-heading example</h2>
-        </header>
-        ```
-        <pre><code>&lt;header class=&quot;slide title&quot; data-markdown&gt;
-          &lt;script type=&quot;text/template&quot;&gt;
-            # Title Slide
-            ## With a Sub-heading
-          &lt;/script&gt;
-        &lt;/header&gt;
-        </code></pre>
-
-        Also, each slide heading should be an `h1`.
-      </script>
-    </article>
-  </section>
-
-  <section>
-    <header class="slide title" data-toc>
-      <h1>Content Styling</h1>
-    </header>
-
-    <article class="slide" data-markdown>
-      <script type="text/template">
-        # Incremental display of content
-
-        To use, add `class="delayed"` in Markdown or HTML.
-
-        ```markdown
-        * Line 1<!-- .element: class="delayed" -->
-        ```
-        ```html
-        <li class="delayed">Line 1</li>
-        ```
-
-        Use the arrow keys to reveal each line.
-
-        * Line 1<!-- .element: class="delayed" -->
-        * Line 2<!-- .element: class="delayed" -->
-        * Line 3<!-- .element: class="delayed" -->
-
-        <p class="delayed note">Note! You could delay the entire list with `class="delayed-children"`, but it only works with HTML not Markdown.</p>
-      </script>
-    </article>
-
-    <article class="slide" data-markdown>
-      <script type="text/template">
-        #Course Outline
-
-        To create a table of contents using slide titles, add `data-toc` to the `<header>` tag of the slide that contains the heading to be included.  Must be an `<h1>` heading. Only add the relevant headings/slides.
-
-        ```html
-        <header class="slide" data-markdown data-toc>
-          #Customizing slides
-        </header>
-        ```
-
-        Then in the slide, add this snippet to generate the list:
-
-        ```html
-        <div class="table-of-contents"></div>
-        ```
-        See the next slide to see the sample Table of Contents.
-      </script>
-    </article>
-
-    <article class="slide two-col-list" data-markdown>
-      <script type="text/template">
-        #Course Outline
-
-        Sample Table of Contents
-
-        <div class="table-of-contents"></div>
-      </script>
-    </article>
-
-    <article class="slide centered" data-markdown>
-      <script type="text/template">
-        #Centered content
-
-        Add a class of `centered` to `<article>`.
-
-        ![](http://cl.ly/image/14193Y1x1f2c/mic-drop.gif)
-      </script>
-    </article>
-
-    <article class="slide" data-markdown>
-      <script type="text/template">
-        #CSS demos
-
-        You can include in-slide CSS demos. In this example, The whole slide will get the CSS applied to it.
-
-        <textarea class="snippet">background-color: lightblue;
-        color: rebeccapurple;</textarea>
-
-        To use, add the CSS example to a `textarea` with a class of `.snippet`. White space will be rendered as well.
-
-        ```html
-        <textarea class="snippet">background-color: lightblue;
-        color: rebeccapurple;</textarea>
-        ```
-      </script>
-    </article>
-
-    <article class="slide" data-markdown>
-      <script type="text/template">
-        #CSS demos
-
-        You can also target specific elements rather than the whole slide.
-
-        <textarea class="snippet" data-subject="#test">color: slateblue;
-        padding: 10px 15px;</textarea>
-
-        <div id="test" class="example">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam nesciunt sint beatae dolor dolorum aliquid quis explicabo vitae numquam.
-        </div>
-
-        In the `<textarea>`, add a `data-subject` attribute with a value that matches the `id` of the element to be targeted.  Also, add `.example` to add the border style. See markup in the HTML source.
-      </script>
-    </article>
-
-    <article class="slide" data-markdown>
-      <script type="text/template">
-        # Footnotes & small text
-
-        Use the class "note" if you want to leave a note in addition to slide content.
-
-        This is a note! Use this for "gotchas" and additional info.<!-- .element: class="note" -->
-
-        To add a Resources section at the end of bottom of the page, add a horizontal rule, an `h3` heading called "Resources", "Resource" or "Pro tip!"  Use a list or paragraph to add resources.  See HTML source code for syntax.
-
-        ---
-        ###Resources
-        * example 1
-        * example 2
-        * example 3
-      </script>
-    </article>
-
-    <article class="slide" data-markdown>
-      <script type="text/template">
-        # Default list style
-
-        Unordered list is triggered by `*` in Markdown.
-
-        * Cupcake ipsum dolor sit amet sweet roll.
-        * Carrot cake powder pastry jelly beans fruitcake.
-        * Liquorice gummies caramels powder.
-        * Chocolate bar icing marzipan candy muffin marzipan.
-        * Gummi bears lollipop bear claw toffee sugar plum apple pie carrot cake cotton candy danish.
-
-        ---
-        ###Resources
-        * http://cupcakeipsum.com
-        * http://ladieslearningcode.com
-      </script>
-    </article>
-
-    <article class="slide" data-markdown>
-      <script type="text/template">
-        # Default ordered list style
-
-        Ordered list is triggered by `1.` in Markdown.
-
-        1. Cupcake ipsum dolor sit amet sweet roll.
-        1. Carrot cake powder pastry jelly beans fruitcake.
-        1. Liquorice gummies caramels powder.
-        1. Chocolate bar icing marzipan candy muffin marzipan.
-        1. Gummi bears lollipop bear claw toffee sugar plum apple pie carrot cake cotton candy danish.
-
-        ---
-        ###Resources
-        1. http://cupcakeipsum.com
-        1. http://ladieslearningcode.com
-      </script>
-    </article>
-
-    <article class="slide nested-list" data-markdown>
-      <script type="text/template">
-        #nested-list
-
-        Add a class of `.nested-list` in the `article` tag.
-
-        * Cupcake ipsum dolor sit amet sweet roll.
-          * Carrot cake powder pastry jelly beans fruitcake.
-          * Gummi bears lollipop bear claw toffee sugar plum apple pie carrot cake cotton candy danish.
-        * Cupcake ipsum
-          1. Chocolate bar icing marzipan candy muffin marzipan.
-          1. Gummi bears lollipop bear claw toffee sugar plum apple pie carrot cake cotton candy danish.
-
-        Just a paragraph.
-
-        ---
-        ###Resources
-        * [WordPress.com and WordPress.org](https://en.support.wordpress.com/com-vs-org/)
-        * http://wordpress.com
-        * http://wordpress.org
-      </script>
-    </article>
-
-    <article class="slide two-col-list" data-markdown>
-      <script type="text/template">
-        #two-col-list
-
-        Nested list displayed in two columns.  Add a class of `.two-col-list` in the `article` tag.
-
-        * Cupcake ipsum dolor
-          * Carrot cake powder pastry
-          * Gummi bears lollipop bear claw toffee sugar plum
-          * apple pie carrot cake cotton candy danish.
-        * Cupcake ipsum
-          1. Chocolate bar icing marzipan candy muffin marzipan.
-          1. Gummi bears lollipop bear claw toffee
-
-        ---
-        ###Resources
-        * [WordPress.com and WordPress.org](https://en.support.wordpress.com/com-vs-org/)
-        * http://wordpress.com
-        * http://wordpress.org
-      </script>
+    
+    <article class="slide small-type" data-markdown>
+        # SQL intro
+        
+        TODO...
     </article>
   </section>
 
