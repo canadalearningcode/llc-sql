@@ -397,6 +397,68 @@
         ```
       </script>
     </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Grouping Results
+        
+        The last major SQL clause we'll look at is `GROUP BY`.
+        
+        This clause allows us to group returned rows together and analyze or calculated some values for the groups created.
+        
+        The general form of the clause is: `GROUP BY` **column_name**
+        
+        The effect this has is to take all rows with matching values in the chosen column, and combining them into a single column, or "throwing them all in the same bucket".
+        
+        But what happens to the other columns, that were different between rows? For this, we'll need to look at some **SQL functions**!
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # SQL Functions
+        
+        Let's take a little break from `GROUP BY` to look at some basic functions we can use to group data.
+        
+        Imagine we're grouping similar rows together and throwing them into a common bucket. What might we want to know about the contents of the bucket?
+        
+        <ul>
+          <li>**Count** the number of elements in the bucket: `COUNT()`</li><!-- .element: class="delayed" -->
+          <li>The **average value** of a column across all results: `AVG()`</li><!-- .element: class="delayed" -->
+          <li>The **sum** of a column across all results: `SUM()`</li><!-- .element: class="delayed" -->
+        </ul>
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Function Example
+        
+        For example, the following query counts the number of foods containing "apple", notice the use of the keyword `AS` to give a new name to the column we create:
+        
+        ```sql
+        SELECT COUNT(*) AS APPLE_COUNT
+        FROM FOOD_NAME
+        WHERE FoodDescription LIKE "%apple%";
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Back to GROUP BY
+        
+        Now back to our grouping example. How can we determine how many foods exist in each food group?
+        
+        ```sql
+        SELECT FoodGroupID, COUNT(FoodID) AS "Foods in Group"
+        FROM FOOD_NAME
+        GROUP BY FoodGroupID;
+        ```
+        
+        Notice that the columns that appear **outside** of functions in the `SELECT` clause must be the columns **on which we grouped.**
+      </script>
+    </article>
   </section>
 
   <section>
