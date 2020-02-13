@@ -286,8 +286,10 @@
         2. Click on the "Execute SQL" Tab
         3. Type the following query and strike F5 (or click &#9654;)
         
-        `SELECT *
-        FROM FOOD_NAME;`
+        ```sql
+        SELECT *
+        FROM FOOD_NAME;
+        ```
         
         You should see a table in the result pane below where you entered the query:
         ![Solution 1](framework/img/workshop/grp_ex_1.png)
@@ -344,8 +346,53 @@
         2. Experiment with selecting data by matching different strings
         3. Experiment with the use of wildcards
     </article>
+    
+    <article class="slide small-type" data-markdown>
+        # Ordering Results
+        
+        The results resturned by a query can be ordered using the `ORDER BY` clause:
+              
+        1. Added following the `FROM` and `WHERE` clauses
+        2. Follows the form: `ORDER BY` **(columns) (ASC|DESC)**, where:
+          * **(columns)** is one or more column names (separated by `,`)
+          * **(ASC|DESC)** is `ASC` to sort in ascending order (small-to-large), or `DESC` to sort in descending order (large-to-small)
+          
+        Let's try that out!
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+        # Exercise 4
+        
+        Let's reuse our last query using `LIKE` to:
+              
+        1. Sort elements by `FoodID`, from largest to smallest
+        2. Sort elements in ascending order in `FoodDescription`
+        
+        For example:
+        
+        ```sql
+        SELECT FoodID, FoodGroupID, FoodSourceID, FoodDescription
+        FROM FOOD_NAME
+        WHERE FoodDescription LIKE "%apple%"
+        ORDER BY FoodID DESC;
+        ```
+    </article>
   </section>
 
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Project</h1>
+    </header>
+
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Project Intro
+
+        TODO...
+      </script>
+    </article>
+  </section>
+  
   <section>
     <header class="slide title" data-toc>
       <h1>Conclusion</h1>
