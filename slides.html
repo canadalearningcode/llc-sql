@@ -240,6 +240,7 @@
     </header>
     
     <article class="slide small-type" data-markdown>
+      <script type="text/template">
         # SQL intro
         
         Now that we have a general understanding of databases, it's time to make use of our data!
@@ -249,9 +250,11 @@
         Today, we'll focus only on the part of the language that allows us to ask questions of the data and receive an answer (querying).
         
         Let's see what that looks like!
+      </script>
     </article>
     
     <article class="slide small-type" data-markdown>
+      <script type="text/template">
         # Anatomy of a SQL Query
         
         A query is defined by a block of text called a **statement**. This can be seen as a single "question" to the database, which
@@ -265,9 +268,11 @@
         This keyword is followed by the names of the columns we want to query.
         
         The second keyword is **FROM**, followed by the names of the tables from which we want data. We terminate the statement with a semicolon.
+      </script>
     </article>
     
     <article class="slide small-type" data-markdown>
+      <script type="text/template">
         # Example of a SELECT Query
         
         This is the most basic form of query, and looks something like this:
@@ -277,10 +282,12 @@
         This query returns the value of every column (*) for every row, from the table called "Person".
         
         Let's try a basic SELECT query in real time!
+      </script>
     </article>
     
     <article class="slide small-type" data-markdown>
-        # Group Exercise 1
+      <script type="text/template">
+        # Exercise 1
               
         1. Open our DB in SQLite Browser
         2. Click on the "Execute SQL" Tab
@@ -293,9 +300,11 @@
         
         You should see a table in the result pane below where you entered the query:
         ![Solution 1](framework/img/workshop/grp_ex_1.png)
+      </script>
     </article>
     
     <article class="slide small-type" data-markdown>
+      <script type="text/template">
         # The WHERE Clause
               
         Our first example selects all the rows from a table, but what if we want to get only specific entries from the data.
@@ -309,18 +318,22 @@
         1. The name of the **column** whose values we want to test
         2. The **operator** we want to test values by (for ex.: =, <, >, <=, >=, like, in)
         3. The **operand**, or value we want the column to match
+      </script>
     </article>
     
     <article class="slide small-type" data-markdown>
-        # Group Exercise 2
+      <script type="text/template">
+        # Exercise 2
               
         Let's refine our previous query by adding a WHERE clause:
         
         1. Add a clause with the condition `FoodID = 5` and execute the query to select only the food with ID 5
         2. Can you design a query to select those foods with IDs up to and including 10?
+      </script>
     </article>
     
     <article class="slide small-type" data-markdown>
+      <script type="text/template">
         # Matching text with LIKE
               
         Our previous example allows us to refine our selection by comparing numeric values, but what if we want to search for some text?
@@ -335,19 +348,23 @@
             * "%apple" matches a string **ending** in "apple"
             * "%apple%" matches a string containing "apple" **anywhere**
             * "apple" matches that string exactly
+      </script>
     </article>
     
     <article class="slide small-type" data-markdown>
-        # Group Exercise 3
+      <script type="text/template">
+        # Exercise 3
         
         Take 5 minutes to:
               
         1. Pick some keywords to search the FOOD_NAME table for
         2. Experiment with selecting data by matching different strings
         3. Experiment with the use of wildcards
+      </script>
     </article>
     
     <article class="slide small-type" data-markdown>
+      <script type="text/template">
         # Ordering Results
         
         The results resturned by a query can be ordered using the `ORDER BY` clause:
@@ -358,9 +375,11 @@
           * **(ASC|DESC)** is `ASC` to sort in ascending order (small-to-large), or `DESC` to sort in descending order (large-to-small)
           
         Let's try that out!
+      </script>
     </article>
     
     <article class="slide small-type" data-markdown>
+      <script type="text/template">
         # Exercise 4
         
         Let's reuse our last query using `LIKE` to:
@@ -376,6 +395,7 @@
         WHERE FoodDescription LIKE "%apple%"
         ORDER BY FoodID DESC;
         ```
+      </script>
     </article>
   </section>
 
