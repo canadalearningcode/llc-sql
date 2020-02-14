@@ -641,7 +641,7 @@
         Let's begin by setting up our recipes for the project. Form into teams of 2 or 3 and:
         
         1. Find 2-3 recipes online (or make up your own)
-        2. Make sure the ingredients are listed in metric quantities (ex.: BBC Good Foods). For this project, you can assume both water and oil are 1g/ml
+        2. Make sure the ingredients are listed in metric quantities (ex.: BBC Good Foods). For this project, you can assume both water and oil are 1g/ml (tsp = 5ml, tbsp = 15ml)
         3. Verify ingredients are in CNF before moving forward
         4. Note down the names and primary keys of the ingredients from `FOOD_NAME`
       </script>
@@ -668,8 +668,8 @@
         
         1. Insert your recipe into the `CLC_RECIPE` table. For ex.:
         ```sql
-        INSERT INTO CLC_RECIPE (RecipeName)
-        VALUES ("My Recipe");
+        INSERT INTO CLC_RECIPE (RecipeName,RecipeServings)
+        VALUES ("My Recipe",2);
         ```
         2. Note the ID of your new recipe (`SELECT`, or use the Browser)
         3. Insert your ingredients into the `CLC_INGREDIENTS` table. For ex.:
