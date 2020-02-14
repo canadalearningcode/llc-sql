@@ -490,18 +490,17 @@
       <script type="text/template">
         # Joining Tables
         
-        Everything we've seen up to this point has covered querying data in different ways from a single table, but the power of a relational database 
-        lies in manipulating related data from different tables.
+        The power of a relational database lies in manipulating related data from different tables.
         
         **Remember:** We do this by matching rows in different tables on **matching ID values**.
         
         There are two basic ways to write this in SQL that work in slightly different ways:
         
-        * As a condition inside the WHERE clause (a bit harder to read)
-        * As a JOIN inside the FROM clause
+        * As a condition inside the `WHERE` clause (a bit harder to read)
+        * As a `JOIN` inside the `FROM` clause
         
-        **Note :** We will focus on the common INNER JOIN (or simply JOIN).
-        For information on other types, look up OUTER JOIN (LEFT, RIGHT or FULL) and NATURAL JOIN online. 
+        **Note :** We will focus on the common `INNER JOIN` (or simply `JOIN`).
+        For information on other types, look up `OUTER JOIN` (`LEFT`, `RIGHT` or `FULL`) and `NATURAL JOIN` online. 
       </script>
     </article>
     
@@ -509,7 +508,7 @@
       <script type="text/template">
         # The JOIN statement
         
-        et's practice by joining the FOOD_NAME and NUTRIENT_AMOUNT tables, to get nutrient breakdown for food ID 20 (brie cheese):
+        et's practice by joining the `FOOD_NAME` and `NUTRIENT_AMOUNT` tables, to get nutrient breakdown for food ID `20` (brie cheese):
         
         ```sql
         SELECT NutrientID, NutrientValue
@@ -564,11 +563,11 @@
         
         The common math operators are:
         
-        * Addition: +
-        * Subtraction: -
-        * Multiplication: *
-        * Division: /
-        * Modulo: % (remainder after integer division)
+        * Addition: `+`
+        * Subtraction: `-`
+        * Multiplication: `*`
+        * Division: `/`
+        * Modulo: `%` (remainder after integer division)
         
         Let's illustrate this with an example on the next slide.
       </script>
