@@ -656,7 +656,7 @@
         We'll then be entering our recipes into pre-made tables for this workshop (already in your DB, empty).
         
         ```sql
-        INSERT INTO table_name
+        INSERT INTO table_name (col_1, col_2, ...)
         VALUES (val_1, val_2, ...);
         ```
       </script>
@@ -666,12 +666,20 @@
       <script type="text/template">
         #Project Activity 2 (20 min)
         
-        1. Insert your recipe into the `CLC_RECIPE` table
-        2. Note the ID of your new recipe
-        3. Insert your ingredients into the `CLC_INGREDIENTS` table (recipe_id, FoodID, ingredient_grams)
+        1. Insert your recipe into the `CLC_RECIPE` table. For ex.:
+        ```sql
+        INSERT INTO CLC_RECIPE (RecipeName)
+        VALUES ("My Recipe");
+        ```
+        2. Note the ID of your new recipe (`SELECT`, or use the Browser)
+        3. Insert your ingredients into the `CLC_INGREDIENTS` table. For ex.:
+        ```sql
+        INSERT INTO CLC_INGREDIENTS (RecipeID, FoodID, IngredientGrams)
+        VALUES (1, 16, 10.5);
+        ```
         4. Query the list of ingredients in your recipe and make sure everything is OK
         
-        **Note :** If you make a mistake, You can visually explore your table in Browser, right-click the row number and select Delete.
+        **Note :** If you make a mistake, you can visually explore your table in Browser, right-click the row number and select Delete.
       </script>
     </article>
     
