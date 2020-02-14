@@ -717,7 +717,7 @@
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
-        #Activity 3 Solutions
+        #Activity 3 Solutions (1)
         
         Part 1:
         
@@ -727,9 +727,17 @@
             JOIN FOOD_NAME fn ON ci.FoodID = fn.FoodID
             JOIN NUTRIENT_AMOUNT na ON fn.FoodID = na.FoodID
             JOIN NUTRIENT_NAME nn ON na.NutrientID = nn.NutrientID
-        WHERE RecipeID = 2
+        WHERE RecipeID = 1
         GROUP BY nn.NutrientID;
         ```
+        
+        ![Result 3.1](framework/img/workshop/activity_3_1.png)
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Activity 3 Solutions (2)
         
         Part 2:
         
@@ -739,9 +747,17 @@
             JOIN FOOD_NAME fn ON ci.FoodID = fn.FoodID
             JOIN NUTRIENT_AMOUNT na ON fn.FoodID = na.FoodID
             JOIN NUTRIENT_NAME nn ON na.NutrientID = nn.NutrientID
-        WHERE RecipeID = 2 AND nn.NutrientID IN (203,204,205,208)
+        WHERE RecipeID = 1 AND nn.NutrientID IN (203,204,205,208)
         GROUP BY nn.NutrientID;
         ```
+        
+        ![Result 3.2](framework/img/workshop/activity_3_2.png)
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Activity 3 Solutions (3)
         
         Part 3:
         
@@ -756,6 +772,8 @@
         GROUP BY cr.RecipeID
         ORDER BY "Calories" DESC;
         ```
+        
+        ![Result 3.3](framework/img/workshop/activity_3_3.png)
       </script>
     </article>
   </section>
