@@ -613,28 +613,37 @@
       <script type="text/template">
         #Project Intro
 
-        TODO...
+        It's time to put this theory into practice!
+        
+        For today's project, we'll be using Health Canada's CNF data to build up some recipes and build up some recipes
+        from individual ingredients. We'll then be able to query our recipes to determine their nutritional value in different ways.
+        
+        The purpose of this project is to explore a database while practicing the material we saw today in a collaboartive environment!
+        
+        Before we start working, let's familiarize ourselves with the CNF database structure.
       </script>
     </article>
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
         #CNF Database Structure
+        
+        **Note :** This diagram describes the CNF tables, with their keys highlighted. Certain column names have changed since 2015 (NutrientNameID is now NutrientID)
 
-        TODO...
+        ![Solution 1](framework/img/workshop/cnf_structure.png)
       </script>
     </article>
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
         #Project Activity 1 (20 min)
-
-        TODO...
         
-        1. Find 1-2 recipes online (or make up your own).
-        2. Metric quantities.
-        3. Verify ingredients are in CNF.
-        4. Note down the names and IDs of the ingredients.
+        Let's begin by setting up our recipes for the project. Form into teams of 2 or 3 and:
+        
+        1. Find 2-3 recipes online (or make up your own)
+        2. Make sure the ingredients are listed in metric quantities (grams). For this project, you can assume both water and oil are 1g/ml
+        3. Verify ingredients are in CNF before moving forward
+        4. Note down the names and primary keys of the ingredients from `FOOD_NAME`
       </script>
     </article>
     
@@ -642,21 +651,24 @@
       <script type="text/template">
         #Inserting Data
 
-        TODO...
+        Before we move on, let's take a moment to leanr the basics of inserting new data into the database.
         
-        Show the most basic INSERT query.
+        We'll then be entering our recipes into pre-made tables for this workshop (already in your DB, empty).
+        
+        ```sql
+        INSERT INTO table_name
+        VALUES (val_1, val_2, ...);
+        ```
       </script>
     </article>
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
         #Project Activity 2 (20 min)
-
-        TODO...
         
-        1. Insert your recipe into the CLC_RECIPE table (recipe_name, ...)
+        1. Insert your recipe into the `CLC_RECIPE` table
         2. Note the ID of your new recipe
-        3. Insert your ingredients into the CLC_INGREDIENTS table (recipe_id, FoodID, ingredient_grams)
+        3. Insert your ingredients into the `CLC_INGREDIENTS` table (recipe_id, FoodID, ingredient_grams)
         4. Query the list of ingredients in your recipe and make sure everything is OK
         
         **Note :** If you make a mistake, You can visually explore your table in Browser, right-click the row number and select Delete.
