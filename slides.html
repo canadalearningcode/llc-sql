@@ -281,17 +281,14 @@
       <script type="text/template">
         # Anatomy of a SQL Query
         
-        A query is defined by a block of text called a **statement**. This can be seen as a single "question" to the database, which
-        requires a single answer.
+        A query is a single "question" to the database, and is formed of **clauses** (like individual sentences).
         
-        Each statement contains keywords that are part of the language, and column and tables names that identify where to get the data from.
-        You can also add conditions that will refine the query (for ex.: sort or group data).
+        Each clause  includes keywords that are part of SQL, and column and table names that identify where to get the data.
+        You can also add conditions that will refine the query (ex.: filter, sort or group data).
         
-        The first keyword in each query to read data is **SELECT**, which tells the DB that we want to read.
+        The keyword `SELECT` tells the DB that we want to read. It is followed by the columns we want.
         
-        This keyword is followed by the names of the columns we want to query.
-        
-        The second keyword is **FROM**, followed by the names of the tables from which we want data. We terminate the statement with a semicolon.
+        The second keyword is `FROM`, followed by the names of the tables from which we want data. We terminate the statement with a `;`.
       </script>
     </article>
     
@@ -300,12 +297,15 @@
         # Example of a SELECT Query
         
         This is the most basic form of query, and looks something like this:
-        `SELECT *
-        FROM Person;`
         
-        This query returns the value of every column (*) for every row, from the table called "Person".
+        ```sql
+        SELECT *
+        FROM table_name;
+        ```
         
-        Let's try a basic SELECT query in real time!
+        This query returns the value of every column (`*`) for every row in the table called "table_name".
+        
+        Let's try a basic `SELECT` query in real time!
       </script>
     </article>
     
@@ -315,7 +315,7 @@
               
         1. Open our DB in SQLite Browser
         2. Click on the "Execute SQL" Tab
-        3. Type the following query and strike F5 (or click &#9654;)
+        3. Type the following query and strike `F5` (or click &#9654;)
         
         ```sql
         SELECT *
@@ -333,14 +333,14 @@
               
         Our first example selects all the rows from a table, but what if we want to get only specific entries from the data.
         
-        The WHERE clause can optionally follow the FROM clause, and allows us to do this.
+        The `WHERE` clause can optionally follow the FROM clause, and allows us to do this. It looks like:
         
-        The WHERE clause looks like: **WHERE (condition)**
+        `WHERE (condition)`
         
         A condition contains:
         
         1. The name of the **column** whose values we want to test
-        2. The **operator** we want to test values by (for ex.: =, <, >, <=, >=, like, in)
+        2. The **operator** we want to test values by (for ex.: `=`, `<`, `>`, `<=`, `>=`, `LIKE`, `IN`)
         3. The **operand**, or value we want the column to match
       </script>
     </article>
@@ -351,8 +351,14 @@
               
         Let's refine our previous query by adding a WHERE clause:
         
-        1. Add a clause with the condition `FoodID = 5` and execute the query to select only the food with ID 5
-        2. Can you design a query to select those foods with IDs up to and including 10?
+        1. Add a clause with the condition `FoodID = 5` and execute the query to `SELECT` only the food with ID `5`
+        ```sql
+        SELECT *
+        FROM FOOD_NAME
+        WHERE FoodID = 5;
+        ```
+        
+        2. Design a query to `SELECT` those foods with IDs up to and including `10`
       </script>
     </article>
     
@@ -360,18 +366,21 @@
       <script type="text/template">
         # Matching text with LIKE
               
-        Our previous example allows us to refine our selection by comparing numeric values, but what if we want to search for some text?
+        Our previous example refines results by comparing numeric values, but what if we want to search for some text?
+        The `LIKE` operator exists for this reason!
         
-        The **LIKE** operator exists for this reason!
+        It's form is:
         
-        It's form is: `WHERE column_name LIKE "some text here"`
+        ```sql
+        WHERE column_name LIKE "some text here"
+        ```
         
-        1. Use double quotes around the required text
-        2. Use **%** as a wild card to match anything
-            * "apple%" matches a string **beginning** in "apple"
-            * "%apple" matches a string **ending** in "apple"
-            * "%apple%" matches a string containing "apple" **anywhere**
-            * "apple" matches that string exactly
+        1. Use `"` around the required text
+        2. Use `%` as a wild card to match anything
+            * `"apple%"` matches a string **beginning** in `"apple"`
+            * `"%apple"` matches a string **ending** in `"apple"`
+            * `"%apple%"` matches a string containing `"apple"` **anywhere**
+            * `"apple"` matches that string exactly
       </script>
     </article>
     
@@ -381,7 +390,7 @@
         
         Take 5 minutes to:
               
-        1. Pick some keywords to search the FOOD_NAME table for
+        1. Pick some keywords to search the `FOOD_NAME` table for
         2. Experiment with selecting data by matching different strings
         3. Experiment with the use of wildcards
       </script>
@@ -460,7 +469,7 @@
       <script type="text/template">
         # Function Example
         
-        For example, the following query counts the number of foods containing "apple", notice the use of the keyword `AS` to give a new name to the column we create:
+        For example, the following query counts the number of foods containing `"apple"`. Notice the use of the keyword `AS` to give a new name to the column we create:
         
         ```sql
         SELECT COUNT(*) AS APPLE_COUNT
