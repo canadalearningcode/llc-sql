@@ -490,7 +490,51 @@
       <script type="text/template">
         # Joining Tables
         
-        TODO... (WHERE and JOIN)
+        Everything we've seen up to this point has covered querying data in different ways from a single table, but the power of a relational database 
+        lies in manipulating related data from different tables.
+        
+        **Remember:** We do this by matching rows in different tables on **matching ID values**.
+        
+        There are two basic ways to write this in SQL that work in slightly different ways:
+        
+        * As a condition inside the WHERE clause (a bit harder to read)
+        * As a JOIN inside the FROM clause
+        
+        **Note :** We will focus on the common INNER JOIN (or simply JOIN).
+        For information on other types, look up OUTER JOIN (LEFT, RIGHT or FULL) and NATURAL JOIN online. 
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # The JOIN statement
+        
+        et's practice by joining the FOOD_NAME and NUTRIENT_AMOUNT tables, to get nutrient breakdown for food ID 20 (brie cheese):
+        
+        ```sql
+        SELECT NutrientID, NutrientValue
+        FROM FOOD_NAME
+             JOIN NUTRIENT_AMOUNT ON FOOD_NAME.FoodID = NUTRIENT_AMOUNT.FoodID
+        WHERE FOOD_NAME.FoodID = 20;
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Joining more than two tables
+        
+        We can join more than two tables at a time. Let's practice by joining 3 tables to get the names of the nutrients:
+        
+        ```sql
+        SELECT NutrientName, NutrientValue
+        FROM FOOD_NAME fn
+             JOIN NUTRIENT_AMOUNT na ON fn.FoodID = na.FoodID
+             JOIN NUTRIENT_NAME nn ON na.NutrientID = nn.NutrientID
+        WHERE fn.FoodID = 20;
+        ```
+        
+        **Notice:** The use of table name **aliases** to shorten the query (optional).
       </script>
     </article>
     
@@ -498,7 +542,7 @@
       <script type="text/template">
         # Nested Queries
         
-        TODO... (IN)
+        TODO... (IN). Maybe move to end as advanced topic...
       </script>
     </article>
     
@@ -506,7 +550,48 @@
       <script type="text/template">
         # Set Operations
         
-        TODO... (UNION, INTERSECT)
+        TODO... (UNION, INTERSECT). Maybe move to end as advanced topic...
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # SQL Math
+        
+        Finally, let's look at running some math on column values before returning a result!
+        
+        This can be very useful when values are in a certain format, but they are only useful to you reported differently.
+        
+        The common math operators are:
+        
+        * Addition: +
+        * Subtraction: -
+        * Multiplication: *
+        * Division: /
+        * Modulo: % (remainder after integer division)
+        
+        Let's illustrate this with an example on the next slide.
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Math Example
+        
+        Health Canada displays nutrients for a food portion of 100g, however
+        in a recipe we may want to use the amount per gram.
+        
+        We can calculate the nutrient amounts per gram of brie cheese by modifying our query as follows:
+        
+        ```sql
+        SELECT NutrientName, (NutrientValue/100) AS "Nutrient per gram"
+        FROM FOOD_NAME fn
+             JOIN NUTRIENT_AMOUNT na ON fn.FoodID = na.FoodID
+             JOIN NUTRIENT_NAME nn ON na.NutrientID = nn.NutrientID
+        WHERE fn.FoodID = 20;
+        ```
+        
+        **Notice:** We used a fixed number here, but we could have used another column in the calculation.
       </script>
     </article>
   </section>
