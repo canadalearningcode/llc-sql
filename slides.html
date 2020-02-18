@@ -548,9 +548,21 @@
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
-        # Nested Queries
+        # The "IN" Operator
         
-        TODO... (IN). Maybe move to end as advanced topic...
+        There are cases where we want to compare a column to a list of values in the `WHERE` clause.
+        The `IN` operator, followed by a list of values between `(` and `)` allows us to do so.
+        
+        For instance, if we want to select foods with IDs 10, 20 and 30, we execute the query:
+        
+        ```sql
+        SELECT FoodID,FoodDescription
+        FROM FOOD_NAME
+        WHERE FoodID IN (10,20,30);
+        ```
+        
+        **Note :** The parentheses can contain an entire `SELECT` query returning the values to compare against.
+        This is called a **nested query**, and will not be covered in this session.
       </script>
     </article>
     
