@@ -104,7 +104,9 @@
     <article class="slide" data-markdown>
       <script type="text/template">
         #Good to go!
-        Now that we're set up, you can minimize the DB Browser, we'll come back to it later.
+        Now that we're set up, you can minimize the DB Browser.
+        
+        We'll come back to it later.
       </script>
     </article>
 
@@ -112,7 +114,9 @@
       <script type="text/template">
         #What is data?
         Information technology and data are everywhere around us. In fact, more information is generated each year than was
-        ever produced by humanity prior to the Internet. But this begs the question:
+        ever produced by humanity prior to the Internet.
+        
+        But this begs the question:
         
         **"What exactly *is* data?"**
         
@@ -163,7 +167,8 @@
         #Data Types
         
         As we hinted at earlier, data can be interpreted in different ways and classified into **types**.
-        There is no limit to these types, but for our purposes today, we will consider:
+        
+        There is no limit to these types but we will consider:
 
         * **INTEGER**: A whole number like `1`, `2` or `16`
         * **REAL**: A real (floating point) number, like `3.5`
@@ -176,11 +181,11 @@
       <script type="text/template">
         #Today's Data
         
-        Today, we'll be working with real data from the Canadian government, called the [Canadian Nutrient File (CNF)](https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/nutrient-data.html)!
+        We'll be working with real data from the Canadian government, called the [Canadian Nutrient File (CNF)](https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/nutrient-data.html)!
         
-        This database contains nutritional information on over 5000 foods last published by Health Canada in 2015.
+        This database contains nutritional information on over 5000 foods published by Health Canada.
         
-        We'll start by learning the basics of SQL with this database and then we'll explore the data through a project to get some hands-on experience.
+        We'll start with SQL basics and then explore the data through a project to get some hands-on experience.
       </script>
     </article>
   </section>
@@ -194,27 +199,27 @@
       <script type="text/template">
         #What is a Database?
 
-        By this point, we have a pretty good idea of what data is, but what is a database?
+        By this point, we have an idea of what data is, but what is a database?
         
-        * Organized (structured) data, that can be queried (we can ask questions about the data and receive answers)<!-- .element: class="delayed" -->
-        * Related data (we can link together associated data. Ex.: a person and their job details)<!-- .element: class="delayed" -->
-        * Managed by software that allows multiple users to manipulate the data at once<!-- .element: class="delayed" -->
+        * Structured data that can be queried (we can ask questions of the data)<!-- .element: class="delayed" -->
+        * Related data (data are linked. Ex.: a person and their job details)<!-- .element: class="delayed" -->
+        * Allows multiple users to safely manipulate the data at once<!-- .element: class="delayed" -->
         
-        <p>There are many different kinds of databases, but today we will learn about a common type called **relational databases!**</p><!-- .element: class="delayed" -->
+        <div>
+        > There are others, but today we will learn about a common type called **relational databases!**
+        </div><!-- .element: class="delayed" -->
       </script>
     </article>
 
     <article class="slide" data-markdown>
       <script type="text/template">
         #Relational Databases
-
-        In a relational database:
         
-        * **Related** data is stored in a **table**, called a **relation** (ex.: one table can hold data on people, another data on planets)
-        * Each **column** of the table describes an **attribute** of the data (ex.: the first name, last name, height and age of a person)
-        * Each **row** of the table represents a **data object** (ex.: an individual person)
-        * Each row is uniquely identified by an **ID** (ex.: the person's social insurance number)
-        * These IDs are known as **primary keys**
+        * **Similar** data is stored in a **table**, called a **relation** (ex.: Person and City tables)
+        * Table **columns** describe **attributes** of the data (ex.: Person's name and age)
+        * Table **rows** represent a **data object** (ex.: an individual person)
+        * Rows are uniquely identified by an **ID** (ex.: social insurance number)
+          * These IDs are known as **primary keys**
       </script>
     </article>
 
@@ -222,14 +227,14 @@
       <script type="text/template">
         #Relationships
 
-        Lines in two tables can be linked together using their primary keys (PK), establishing a **relationship**:
+        Lines in two tables can be linked together using their primary keys (PK), establishing a **relationship**. For ex.:
         
         <ol>
           <li>A line in the `PERSON` table describes `Mary`. Her PK is her SIN: `123456789`</li><!-- .element: class="delayed" -->
           <li>A line in the `CITY` table describes `Montreal`. Its PK is the code: `YUL`</li><!-- .element: class="delayed" -->
-          <li>One column in `PERSON` is `HOMETOWN`. Values in this column **must** PKs from `CITY`</li><!-- .element: class="delayed" -->
+          <li>Values in the `HOMETOWN` column of `PERSON` **match** PKs from `CITY`</li><!-- .element: class="delayed" -->
           <li>In Mary's case the value is `YUL`</li><!-- .element: class="delayed" -->
-          <li>Thus data on Mary links to data on her hometown through this **relationship**</li><!-- .element: class="delayed" -->
+          <li>Thus Mary's data links to her hometown data through this **relationship**</li><!-- .element: class="delayed" -->
         </ol>
       </script>
     </article>
@@ -249,9 +254,9 @@
       <script type="text/template">
         #Today's Database
         
-        Today, we'll be working with SQLite, which is a very simple relational database, supporting the full standard SQL language.
+        We'll be working with **SQLite**, a simple relational database supporting the SQL language.
         
-        This is a good learning tool that is easy to install and everything you learn will transfer to any standard SQL database system.
+        It's a good learning tool and everything you learn will transfer to other SQL databases.
         
         Now, let's dig into the SQL language!
       </script>
@@ -267,11 +272,11 @@
       <script type="text/template">
         # SQL intro
         
-        Now that we have a general understanding of databases, it's time to make use of our data!
+        With a general understanding of databases, it's time to make use of our data!
         
-        The **S**tructured **Q**uery **L**anguage (**SQL**) allows us to define, modify and read our data at will (think back to CRUD).
+        **S**tructured **Q**uery **L**anguage (**SQL**) lets us define, modify and read our data (CRUD).
         
-        Today, we'll focus only on the part of the language that allows us to ask questions of the data and receive an answer (querying).
+        We'll focus on the part of SQL that asks questions of existing data (querying).
         
         Let's see what that looks like!
       </script>
@@ -281,14 +286,15 @@
       <script type="text/template">
         # Anatomy of a SQL Query
         
-        A query is a single "question" to the database, and is formed of **clauses** (like individual sentences).
+        A "question" to the database, formed of **clauses** (like individual sentences).
         
-        Each clause  includes keywords that are part of SQL, and column and table names that identify where to get the data.
-        You can also add conditions that will refine the query (ex.: filter, sort or group data).
+        Clauses include SQL **keywords** with **column** and **table** names to locate the data.
         
-        The keyword `SELECT` tells the DB that we want to read. It is followed by the columns we want.
+        You can refine the query with **conditions** (ex.: to filter, sort or group data).
         
-        The second keyword is `FROM`, followed by the names of the tables from which we want data. We terminate the statement with a `;`.
+        1. `SELECT` starts the 1st clause, followed by the columns we want.
+        2. `FROM` starts the 2nd clause, followed by the tables holding the data.
+        3. `;` terminates the statement 
       </script>
     </article>
     
@@ -296,14 +302,14 @@
       <script type="text/template">
         # Example of a SELECT Query
         
-        This is the most basic form of query, and looks something like this:
+        This most basic query looks something like this:
         
         ```sql
         SELECT *
         FROM table_name;
         ```
         
-        This query returns the value of every column (`*`) for every row in the table called "table_name".
+        This returns the value of every column (`*`) for every row in `table_name`.
         
         Let's try a basic `SELECT` query in real time!
       </script>
@@ -331,17 +337,19 @@
       <script type="text/template">
         # The WHERE Clause
               
-        Our first example selects all the rows from a table, but what if we want to get only specific entries from the data.
+        What if we want to get only specific entries from our data?
         
-        The `WHERE` clause can optionally follow the FROM clause, and allows us to do this. It looks like:
+        The `WHERE` clause **can** follow the `FROM` clause, and allows to do this:
         
-        `WHERE (condition)`
+        ```sql
+        WHERE (column operator operand)
+        ```
         
-        A condition contains:
+        Where:
         
-        1. The name of the **column** whose values we want to test
-        2. The **operator** we want to test values by (for ex.: `=`, `<`, `>`, `<=`, `>=`, `LIKE`, `IN`)
-        3. The **operand**, or value we want the column to match
+        1. **column** is the attribute we want to test
+        2. **operator** is the type of comparison (ex.: `=`, `<`, `>`, `<=`, `>=`, `LIKE`, `IN`)
+        3. **operand** is the value we want to match
       </script>
     </article>
     
@@ -349,16 +357,22 @@
       <script type="text/template">
         # Exercise 2
               
-        Let's refine our previous query by adding a WHERE clause:
+        Let's refine our previous query by adding a `WHERE` clause:
         
-        1. Add a clause with the condition `FoodID = 5` and execute the query to `SELECT` only the food with ID `5`
+        1. Use the condition `FoodID = 5` and `SELECT` only the food with ID `5` :
         ```sql
         SELECT *
         FROM FOOD_NAME
         WHERE FoodID = 5;
         ```
         
-        2. Design a query to `SELECT` those foods with IDs up to and including `10`
+        2. Design a query to `SELECT` those foods with IDs **up to and including** `10`
+        ```sql
+        SELECT *
+        FROM FOOD_NAME
+        WHERE FoodID <= 10;
+        ```
+        <!-- .element: class="delayed" -->
       </script>
     </article>
     
@@ -366,21 +380,19 @@
       <script type="text/template">
         # Matching text with LIKE
               
-        Our previous example refines results by comparing numeric values, but what if we want to search for some text?
-        The `LIKE` operator exists for this reason!
-        
-        It's form is:
+        We filtered data by comparing numbers, but what if we want to search for text?
+        `LIKE` exists for this:
         
         ```sql
         WHERE column_name LIKE "some text here"
         ```
         
         1. Use `"` around the required text
-        2. Use `%` as a wild card to match anything
+        2. Use `%` to match anything (wild card)
             * `"apple%"` matches a string **beginning** in `"apple"`
-            * `"%apple"` matches a string **ending** in `"apple"`
-            * `"%apple%"` matches a string containing `"apple"` **anywhere**
-            * `"apple"` matches that string exactly
+            * `"%apple"` must **end** in `"apple"`
+            * `"%apple%"` must contain `"apple"` **anywhere**
+            * `"apple"` matches that string **exactly**
       </script>
     </article>
     
@@ -390,9 +402,18 @@
         
         Take 5 minutes to:
               
-        1. Pick some keywords to search the `FOOD_NAME` table for
+        1. Pick some **terms** to search the `FOOD_NAME` table for
         2. Experiment with selecting data by matching different strings
         3. Experiment with the use of wildcards
+        
+        <div>
+        Example:
+        ```sql
+        SELECT *
+        FROM FOOD_NAME
+        WHERE FoodDescription LIKE "%apple%";
+        ```
+        </div><!-- .element: class="delayed" -->
       </script>
     </article>
     
@@ -400,12 +421,16 @@
       <script type="text/template">
         # Ordering Results
         
-        The results resturned by a query can be ordered using the `ORDER BY` clause:
-              
-        1. Added following the `FROM` and `WHERE` clauses
-        2. Follows the form: `ORDER BY` **(columns) (ASC|DESC)**, where:
-          * **(columns)** is one or more column names (separated by `,`)
-          * **(ASC|DESC)** is `ASC` to sort in ascending order (small-to-large), or `DESC` to sort in descending order (large-to-small)
+        Data can be ordered using the `ORDER BY` clause, following the `FROM` and `WHERE` clauses:
+        
+        ```sql
+        ORDER BY (columns) (ASC|DESC)
+        ```
+        
+        Where:
+        
+        * **(columns)** is one or more columns to order on (separated by `,`)
+        * **(ASC|DESC)**: `ASC` to sort in ascending order, or `DESC` to sort in descending order
           
         Let's try that out!
       </script>
@@ -418,8 +443,9 @@
         Let's reuse our last query using `LIKE` to:
               
         1. Sort elements by `FoodID`, from largest to smallest
-        2. Sort elements in ascending order in `FoodDescription`
+        2. Sort elements in ascending order on `FoodDescription`
         
+        <div>
         For example:
         
         ```sql
@@ -428,6 +454,7 @@
         WHERE FoodDescription LIKE "%apple%"
         ORDER BY FoodID DESC;
         ```
+        </div><!-- .element: class="delayed" -->
       </script>
     </article>
     
@@ -435,15 +462,19 @@
       <script type="text/template">
         # Grouping Results
         
-        The last major SQL clause we'll look at is `GROUP BY`.
+        The `GROUP BY` clause combines rows and calculates total values for these groups.
         
-        This clause allows us to group returned rows together and analyze or calculated some values for the groups created.
+        Thus:
         
-        The general form of the clause is: `GROUP BY` **column_name**
+        ```sql
+        GROUP BY column_name
+        ```
         
-        The effect this has is to take all rows with matching values in the chosen column, and combining them into a single column, or "throwing them all in the same bucket".
+        Combines rows with identical values in `column_name`, or "throws them all in the same bucket".
         
-        But what happens to the other columns, that were different between rows? For this, we'll need to look at some **SQL functions**!
+        What happens to the other columns that were different between rows?
+        
+        For this, we'll need to look at some **SQL functions**!
       </script>
     </article>
     
@@ -451,14 +482,14 @@
       <script type="text/template">
         # SQL Functions
         
-        Let's take a little break from `GROUP BY` to look at some basic functions we can use to group data.
+        Imagine we're grouping similar rows together in a common bucket.
         
-        Imagine we're grouping similar rows together and throwing them into a common bucket. What might we want to know about the contents of the bucket?
+        What might we want to know about the contents of the bucket?
         
         <ul>
-          <li>**Count** the number of elements in the bucket: `COUNT()`</li><!-- .element: class="delayed" -->
-          <li>The **average value** of a column across all results: `AVG()`</li><!-- .element: class="delayed" -->
-          <li>The **sum** of a column across all results: `SUM()`</li><!-- .element: class="delayed" -->
+          <li>The **number of** elements in the bucket: `COUNT()`</li><!-- .element: class="delayed" -->
+          <li>The **average value** of a column: `AVG()`</li><!-- .element: class="delayed" -->
+          <li>The **sum** of a column: `SUM()`</li><!-- .element: class="delayed" -->
           <li>The **smallest** value in a column: `MIN()`</li><!-- .element: class="delayed" -->
           <li>The **largest** value in a column: `MAX()`</li><!-- .element: class="delayed" -->
         </ul>
@@ -469,7 +500,9 @@
       <script type="text/template">
         # Function Example
         
-        For example, the following query counts the number of foods containing `"apple"`. Notice the use of the keyword `AS` to give a new name to the column we create:
+        The following query counts the foods containing `"apple"`.
+        
+        Notice the use of the keyword `AS` to give a new name to the column we create:
         
         ```sql
         SELECT COUNT(*) AS APPLE_COUNT
@@ -483,7 +516,7 @@
       <script type="text/template">
         # Back to GROUP BY
         
-        Now back to our grouping example. How can we determine how many foods exist in each food group?
+        How can we determine how many foods exist in each food group?
         
         ```sql
         SELECT FoodGroupID, COUNT(FoodID) AS "Foods in Group"
@@ -491,7 +524,9 @@
         GROUP BY FoodGroupID;
         ```
         
-        Notice that the columns that appear **outside** of functions in the `SELECT` clause must be the columns **on which we grouped.**
+        Columns that appear **outside** of functions in `SELECT` normally appear in `GROUP BY`.
+        
+        Other columns are calculations over the whole group.
       </script>
     </article>
     
@@ -499,17 +534,16 @@
       <script type="text/template">
         # Joining Tables
         
-        The power of a relational database lies in manipulating related data from different tables.
+        We want to manipulate related data from **different** tables by **matching ID values**.
         
-        **Remember:** We do this by matching rows in different tables on **matching ID values**.
+        There are different ways to do this. We'll focus on `INNER JOIN` (or simply `JOIN`) :
         
-        There are two basic ways to write this in SQL that work in slightly different ways:
+        ```sql
+        SELECT columns
+        FROM table1 JOIN table2 ON table1.column = table2.column;
+        ```
         
-        * As a condition inside the `WHERE` clause (a bit harder to read)
-        * As a `JOIN` inside the `FROM` clause
-        
-        **Note :** We will focus on the common `INNER JOIN` (or simply `JOIN`).
-        For information on other types, look up `OUTER JOIN` (`LEFT`, `RIGHT` or `FULL`) and `NATURAL JOIN` online. 
+        > For other joins, look up `OUTER JOIN` (`LEFT`, `RIGHT` or `FULL`) and `NATURAL JOIN`. Tables can also be joined in the `WHERE` clause.
       </script>
     </article>
     
@@ -517,7 +551,7 @@
       <script type="text/template">
         # The JOIN statement
         
-        et's practice by joining the `FOOD_NAME` and `NUTRIENT_AMOUNT` tables, to get nutrient breakdown for food ID `20` (brie cheese):
+        Let's join the `FOOD_NAME` and `NUTRIENT_AMOUNT` tables, to get nutrient breakdown for food ID `20` (brie cheese):
         
         ```sql
         SELECT NutrientID, NutrientValue
@@ -525,6 +559,7 @@
              JOIN NUTRIENT_AMOUNT ON FOOD_NAME.FoodID = NUTRIENT_AMOUNT.FoodID
         WHERE FOOD_NAME.FoodID = 20;
         ```
+        <!-- .element: class="delayed" -->
       </script>
     </article>
     
@@ -532,7 +567,9 @@
       <script type="text/template">
         # Joining more than two tables
         
-        We can join more than two tables at a time. Let's practice by joining 3 tables to get the names of the nutrients:
+        We can join more than two tables at a time.
+        
+        Let's practice by joining 3 tables to get the names of the nutrients:
         
         ```sql
         SELECT NutrientName, NutrientValue
@@ -542,7 +579,7 @@
         WHERE fn.FoodID = 20;
         ```
         
-        **Notice:** The use of table name **aliases** to shorten the query (optional).
+        > Notice the use of table name **aliases** to shorten the query (optional).
       </script>
     </article>
     
@@ -550,10 +587,9 @@
       <script type="text/template">
         # The "IN" Operator
         
-        There are cases where we want to compare a column to a list of values in the `WHERE` clause.
-        The `IN` operator, followed by a list of values between `(` and `)` allows us to do so.
+        We sometimes want to compare a column to a list of values in the `WHERE` clause.
         
-        For instance, if we want to select foods with IDs 10, 20 and 30, we execute the query:
+        The `IN` operator, followed by a list of values between `(` and `)` allows us to do so:
         
         ```sql
         SELECT FoodID,FoodDescription
@@ -561,8 +597,10 @@
         WHERE FoodID IN (10,20,30);
         ```
         
-        **Note :** The parentheses can contain an entire `SELECT` query returning the values to compare against.
+        <div>
+        > The parentheses can contain an entire `SELECT` query returning the values to compare against.
         This is called a **nested query**, and will not be covered in this session.
+        </div><!-- .element: class="delayed" -->
       </script>
     </article>
     
@@ -572,7 +610,7 @@
         
         Finally, let's look at running some math on column values before returning a result!
         
-        This can be very useful when values are in a certain format, but they are only useful to you reported differently.
+        This is useful to change a number column for reporting.
         
         The common math operators are:
         
@@ -581,8 +619,6 @@
         * Multiplication: `*`
         * Division: `/`
         * Modulo: `%` (remainder after integer division)
-        
-        Let's illustrate this with an example on the next slide.
       </script>
     </article>
     
@@ -590,10 +626,9 @@
       <script type="text/template">
         # Math Example
         
-        Health Canada displays nutrients for a food portion of 100g, however
-        in a recipe we may want to use the amount per gram.
+        CNF lists nutrients for a portion of 100g. What if we want the amount/gram?
         
-        We can calculate the nutrient amounts per gram of brie cheese by modifying our query as follows:
+        We can get nutrients/gram for brie cheese by modifying our query as follows:
         
         ```sql
         SELECT NutrientName, (NutrientValue/100) AS "Nutrient per gram"
@@ -602,8 +637,11 @@
              JOIN NUTRIENT_NAME nn ON na.NutrientID = nn.NutrientID
         WHERE fn.FoodID = 20;
         ```
+        <!-- .element: class="delayed" -->
         
-        **Notice:** We used a fixed number here, but we could have used another column in the calculation.
+        <div>
+        > We used a fixed number here, but we could have used another column in the calculation.
+        </div><!-- .element: class="delayed" -->
       </script>
     </article>
   </section>
@@ -619,12 +657,14 @@
 
         It's time to put this theory into practice!
         
-        For today's project, we'll be using Health Canada's CNF data to build up some recipes and build up some recipes
-        from individual ingredients. We'll then be able to query our recipes to determine their nutritional value in different ways.
+        We'll:
         
-        The purpose of this project is to explore a database while practicing the material we saw today in a collaboartive environment!
+        1. Use the CNF data to build recipes from individual ingredients
+        2. Query our recipes to determine their nutritional value in different ways
         
-        Before we start working, let's familiarize ourselves with the CNF database structure.
+        Let's explore a database by collaboratively practicing today's material!
+        
+        Before starting, we'll familiarize ourselves with the CNF database structure.
       </script>
     </article>
     
@@ -632,7 +672,7 @@
       <script type="text/template">
         #CNF Database Structure
         
-        **Note :** This diagram describes the CNF tables, with their keys highlighted. Certain column names have changed since 2015 (NutrientNameID is now NutrientID)
+        > This diagram describes the CNF tables, with their keys highlighted. Certain column names have changed since 2015 (NutrientNameID is now NutrientID)
 
         ![CNF Structure](framework/img/workshop/cnf_structure.png)
       </script>
@@ -642,12 +682,36 @@
       <script type="text/template">
         #Project Activity 1 (20 min)
         
-        Let's begin by setting up our recipes for the project. Form into teams of 2 or 3 and:
+        Let's begin by setting up our recipes for the project.
+        
+        Form into teams of 2 or 3 and produce recipes in a text file or on paper:
         
         1. Find 2-3 recipes online (or make up your own)
-        2. Make sure the ingredients are listed in metric quantities (ex.: BBC Good Foods). For this project, you can assume both water and oil are 1g/ml (tsp = 5ml, tbsp = 15ml)
-        3. Verify ingredients are in CNF before moving forward
-        4. Note down the names and primary keys of the ingredients from `FOOD_NAME`
+        2. Verify ingredients are listed in metric quantities (ex.: BBC Good Foods). Assume both water and oil are 1g/ml (tsp = 5ml, tbsp = 15ml)
+        3. Verify ingredients exist in `FOOD_NAME`
+        4. Note the names and primary keys of the ingredients
+        5. Note the quantity in grams of each ingredient
+        6. Note the number of servings for the recipe
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Activity 1 Solution
+        
+        On paper, each recipe should now look like this:
+        
+        **Apple Pie (8 servings) : **
+        
+        | Ingredient | Primary Key | Grams |
+        | ---------- | -----------:| -----:|
+        | Apple, raw | 1486 | 1000 |
+        | Sugar | 502040 | 190 |
+        | Cinnamon | 178 | 1.25 |
+        | Flour | 501865 | 375 |
+        | Butter | 92 | 225 |
+        | Eggs | 125 | 100 |
+        
       </script>
     </article>
     
@@ -655,9 +719,9 @@
       <script type="text/template">
         #Inserting Data
 
-        Before we move on, let's take a moment to leanr the basics of inserting new data into the database.
+        Let's take a moment to learn the basics of inserting new data into the database.
         
-        We'll then be entering our recipes into pre-made tables for this workshop (already in your DB, empty).
+        We'll then enter our recipes into pre-made (empty) tables for this workshop.
         
         ```sql
         INSERT INTO table_name (col_1, col_2, ...)
@@ -670,20 +734,20 @@
       <script type="text/template">
         #Project Activity 2 (20 min)
         
-        1. Insert your recipe into the `CLC_RECIPE` table. For ex.:
+        1. Insert your recipe into the `CLC_RECIPE` table:
         ```sql
         INSERT INTO CLC_RECIPE (RecipeName,RecipeServings)
         VALUES ("My Recipe",2);
         ```
         2. Note the ID of your new recipe (`SELECT`, or use the Browser)
-        3. Insert your ingredients into the `CLC_INGREDIENTS` table. For ex.:
+        3. Insert your ingredients into the `CLC_INGREDIENTS` table:
         ```sql
         INSERT INTO CLC_INGREDIENTS (RecipeID, FoodID, IngredientGrams)
         VALUES (1, 16, 10.5);
         ```
-        4. Query the list of ingredients in your recipe, sorted by quantity, and make sure everything is OK
+        4. Query the ingredients in your recipe, sorted by quantity, and validate
         
-        **Note :** If you make a mistake, you can visually explore your table in Browser, right-click the row number and select Delete.
+        > If you make a mistake: Browse Data tab > right-click the row > Delete.
       </script>
     </article>
     
@@ -710,12 +774,12 @@
         #Project Activity 3 (30 min)
         
         1. Query the `SUM` (total) of each nutrient in one of your recipes
-        2. Refine the previous query by limiting the results to only:
+        2. Refine the previous query by limiting the results to:
           * Total protein
           * Total fat
           * Total carbohydrates
           * Energy in kilocalories
-        3. Modify the previous query to order your recipes by calorie content (or another column)
+        3. Modify the query to order recipes by calorie content (or another column)
       </script>
     </article>
     
