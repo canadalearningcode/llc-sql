@@ -591,13 +591,29 @@
         
         ```sql
         SELECT NutrientName, NutrientValue
+        FROM FOOD_NAME
+             JOIN NUTRIENT_AMOUNT ON FOOD_NAME.FoodID = NUTRIENT_AMOUNT.FoodID
+             JOIN NUTRIENT_NAME ON NUTRIENT_AMOUNT.NutrientID = NUTRIENT_NAME.NutrientID
+        WHERE fn.FoodID = 20;
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Table Aliases
+        
+        A query with many repeating table names can be simplified as follows:
+        
+        ```sql
+        SELECT NutrientName, NutrientValue
         FROM FOOD_NAME fn
              JOIN NUTRIENT_AMOUNT na ON fn.FoodID = na.FoodID
              JOIN NUTRIENT_NAME nn ON na.NutrientID = nn.NutrientID
         WHERE fn.FoodID = 20;
         ```
         
-        > Notice the use of table name **aliases** to shorten the query (optional).
+        > Notice the use of table name **aliases** (**fn**, **na** and **nn**) to shorten the query.
       </script>
     </article>
     
