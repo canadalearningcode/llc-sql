@@ -745,6 +745,7 @@
         
         1. Use the CNF data to build recipes from individual ingredients
         2. Query our recipes to determine their nutritional value in different ways
+        3. Analyze data to solve problems and offer advice
         
         Let's explore a database by collaboratively practicing today's material!
       </script>
@@ -772,6 +773,25 @@
         > This diagram describes the CNF tables, with their keys highlighted. Certain column names have changed since 2015 (NutrientNameID is now NutrientID)
 
         ![CNF Structure](framework/img/workshop/cnf_structure.png)
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Instructions
+        
+        For this part of the workshop, you'll be assuming the roles of nutrition advisors!
+        
+        * Form into teams of 2 or 3 learners
+        * One team member can be responsible for entering and running queries, while another searches for data online
+        * Collaborate on each step, and don't hesitate to swap roles!
+        
+        > This final section is fully hands-on and includes two separate parts:
+        
+        1. A menu-design project, split over a number of activities, starting on the next slide
+        2. A series of <a href="#challenge-problems">individual practice problems to solve</a>
+        
+        > We'll move through the project as a group, but feel free to try your hand at the challenge problems first, if you'd like, or if you need a break from the project. 
       </script>
     </article>
     
@@ -939,6 +959,101 @@
         ```
         
         ![Result 3.3](framework/img/workshop/activity_3_3.png)
+      </script>
+    </article>
+  </section>
+  
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Challenge Problems</h1>
+    </header>
+
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge Intro
+
+        The world of nutrition can be confusing!
+        
+        As an expert in the field, you rely on data to guide the colorful characters that show up to your practice with concerns.
+        
+        Try your hand at solving the following problems **with a single query** to test your SQL skills.
+        
+        Don't forget to have fun!
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 1: I Want my Greens
+
+        Brock O. Lee is adopting a new low-carb diet.
+        
+        He requires foods mathing the follwing criteria:
+        
+        * Must be a **vegetable**
+        * Must be **green**
+        * Must have **less than 10 grams of carbs** for a 100 gram portion
+        
+        Your client wants a simple table listing all of these foods with the name of the food and the grams of carbs, from least to most.
+        
+        > **Hint**: What is the food group for vegetables? What is the nutrient ID for carbs? Which 2 tables should you join in this query? 
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 1 Solution
+
+        ```sql
+        SELECT FoodDescription, NutrientValue AS "Grams of Carbs"
+        FROM FOOD_NAME fn JOIN NUTRIENT_AMOUNT na ON fn.FoodID = na.FoodID
+        WHERE FoodGroupID = 11 
+            AND FoodDescription LIKE "%green%" 
+            AND NutrientID = 205
+            AND NutrientValue < 10
+        ORDER BY NutrientValue ASC;
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 2: Canned Threats
+
+        Mac N. Cheese has been eating too many processed foods and his doctor has reccomended avoiding foods with the following properties (taken together):
+        
+        * At least **20 grams of total fat** (ID: `205`) per 100g serving
+        * At least **2%** of those fats are **trans fats** (ID: `605`)
+        
+        There's only one problem: Mr. Cheese is data illiterate!
+        
+        Help him out by producing a list of foods to avoid, with the name of the food, the total grams of fat and the percentage of trans fat.
+        
+        > **Hint**: This one's tough! You'll need to `JOIN` together two separate `SELECT` queries (one for each type of fat)!
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 2 Solution
+
+        ```sql
+        SELECT a.FoodDescription, "Total Fat", ("Total Trans Fat"/"Total Fat"*100) AS "Trans Fat %"
+        FROM 
+            (
+                SELECT fn.FoodID, FoodDescription, NutrientValue AS "Total Fat"
+                FROM FOOD_NAME fn JOIN NUTRIENT_AMOUNT na ON fn.FoodID = na.FoodID
+                WHERE NutrientID = 205
+            ) a 
+            JOIN 
+            (
+                SELECT fn.FoodID, FoodDescription, NutrientValue AS "Total Trans Fat"
+                FROM FOOD_NAME fn JOIN NUTRIENT_AMOUNT na ON fn.FoodID = na.FoodID
+                WHERE NutrientID = 605
+            ) b 
+            ON a.FoodID = b.FoodID
+        WHERE "Total Fat" >= 20 AND "Trans Fat %" >= 2;
+        ```
       </script>
     </article>
   </section>
