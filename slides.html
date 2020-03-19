@@ -984,11 +984,41 @@
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
-        #Challenge 1: I Want my Greens
+        #Challenge 1: Critical Groups
+
+        Ms. Flamm Boyant, France's formost food critic is visiting your city!
+        
+        She has heard of Canada's intriguing "food groups" and her request is simple.
+        
+        She requires:
+        
+        * A list of the food groups available
+        * The number of foods in each group
+        * The groups listed from largest (most foods) to smallest
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 1 Solution
+
+        ```sql
+        SELECT FoodGroupName, COUNT(*) AS FoodCount
+        FROM FOOD_NAME fn JOIN FOOD_GROUP fg 
+            ON fn.FoodGroupID = fg.FoodGroupID
+        GROUP BY fg.FoodGroupID
+        ORDER BY FoodCount DESC;
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 2: I Want my Greens
 
         Brock O. Lee is adopting a new low-carb diet.
         
-        He requires foods mathing the follwing criteria:
+        He requires foods matching the follwing criteria:
         
         * Must be a **vegetable**
         * Must be **green**
@@ -1002,7 +1032,7 @@
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
-        #Challenge 1 Solution
+        #Challenge 2 Solution
 
         ```sql
         SELECT FoodDescription, NutrientValue AS "Grams of Carbs"
@@ -1018,7 +1048,7 @@
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
-        #Challenge 2: Canned Threats
+        #Challenge 3: Canned Threats
 
         Mac N. Cheese has been eating too many processed foods and his doctor has reccomended avoiding foods with the following properties (taken together):
         
@@ -1035,7 +1065,7 @@
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
-        #Challenge 2 Solution
+        #Challenge 3 Solution
 
         ```sql
         SELECT a.FoodDescription, "Total Fat", ("Total Trans Fat"/"Total Fat"*100) AS "Trans Fat %"
