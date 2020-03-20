@@ -986,7 +986,7 @@
       <script type="text/template">
         #Challenge 1: Critical Groups
 
-        Ms. Flamm Boyant, France's formost food critic is visiting your city!
+        Ms. Flamm Boyant, France's foremost food critic is visiting your city!
         
         She has heard of Canada's intriguing "food groups" and her request is simple.
         
@@ -995,6 +995,8 @@
         * A list of the food groups available
         * The number of foods in each group
         * The groups listed from largest (most foods) to smallest
+        
+        > Find her this data before she writes a bad review on social media!
       </script>
     </article>
     
@@ -1048,7 +1050,99 @@
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
-        #Challenge 3: Canned Threats
+        #Challenge 3: Zigzag Meal Plan
+
+        Amanda A. Appleton has always hated the letter "z".
+        
+        This unusual phobic state has now resulted in a health condition, as she suffers from a zinc deficiency!
+        
+        A woman her age requires `8mg` of zinc daily.
+        
+        Her doctor recommends the following treatment:
+        
+        * Eat foods providing **at least half** the daily requirement per 100g portion
+        * Eat foods containing the letter "z" n their descriptions, to desensitize yourself from the phobia
+        
+        > Run a quick query to provide her with a list of suitable foods!
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 3 Solution
+
+        ```sql
+        SELECT FoodDescription, NutrientValue
+        FROM FOOD_NAME fn JOIN NUTRIENT_AMOUNT na 
+            ON fn.FoodID = na.FoodID
+        WHERE NutrientID = 309 
+            AND NutrientValue >= 4 
+            AND FoodDescription LIKE '%z%';
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 4: No Leftovers!
+
+        Your highschool math  teacher bursts through the door!
+        
+        He's joined an environmental organization and is convinced there's a conspiracy at play!
+        
+        He needs a list of foods whose `ID` is **evenly divided** by their `RefuseAmount`.
+        
+        You try to explain this doesn't make much sense, but he's adamant.
+        
+        > **Note** : A number is evenly divided by another when there's no remainder after division (the `%` of the numbers is `0`)
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 4 Solution
+
+        ```sql
+        SELECT fn.FoodID, FoodDescription, RefuseAmount
+        FROM FOOD_NAME fn JOIN REFUSE_AMOUNT ra 
+            ON fn.FoodID = ra.FoodID
+        WHERE RefuseID = 750 
+            AND (fn.FoodID % RefuseAmount = 0);
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 4b: Leftovers = Profit
+
+        Your old teacher's ecstatic!
+        
+        He offers to pay you `$0.50` for **each unit of refuse** in your list, instead of your flat rate of $200.00.
+        
+        Your not sure if he's trying to short-change you or if he's truly lost his mind.
+        
+        > Adjust your query to calculate your pay and find out!
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 4b Solution
+
+        ```sql
+        SELECT (SUM(RefuseAmount) * 0.50) AS Pay
+        FROM FOOD_NAME fn JOIN REFUSE_AMOUNT ra 
+            ON fn.FoodID = ra.FoodID
+        WHERE RefuseID = 750 
+            AND (fn.FoodID % RefuseAmount = 0);
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 5: Canned Threats
 
         Mac N. Cheese has been eating too many processed foods and his doctor has reccomended avoiding foods with the following properties (taken together):
         
@@ -1065,7 +1159,7 @@
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
-        #Challenge 3 Solution
+        #Challenge 5 Solution
 
         ```sql
         SELECT a.FoodDescription, "Total Fat", ("Total Trans Fat"/"Total Fat"*100) AS "Trans Fat %"
