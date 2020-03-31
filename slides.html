@@ -699,22 +699,6 @@
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
-        # The JOIN statement
-        
-        Let's join the `FOOD_NAME` and `NUTRIENT_AMOUNT` tables, to get nutrient breakdown for food ID `20` (brie cheese):
-        
-        ```sql
-        SELECT NutrientID, NutrientValue
-        FROM FOOD_NAME
-             JOIN NUTRIENT_AMOUNT ON FOOD_NAME.FoodID = NUTRIENT_AMOUNT.FoodID
-        WHERE FOOD_NAME.FoodID = 20;
-        ```
-        <!-- .element: class="delayed" -->
-      </script>
-    </article>
-    
-    <article class="slide small-type" data-markdown>
-      <script type="text/template">
         # Visualizing JOIN
         
         This Venn diagram illustrates the `INNER JOIN` operation, which returns **only** those rows that have **matching values** in the chosen column in **both tables**:
@@ -722,6 +706,24 @@
         ![INNER JOIN Venn Diagram](framework/img/workshop/venn_inner_join.png)
         
         > Diagrams for other types of JOINs can be seen [here](https://www.w3schools.com/sql/sql_join.asp).
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Exercise 5: The JOIN statement
+        
+        Let's join the `FOOD_NAME` and `NUTRIENT_AMOUNT` tables, to get nutrient breakdown for food ID `20` (brie cheese):
+        
+        ```sql
+        SELECT NutrientID, NutrientValue 
+        FROM FOOD_NAME
+             JOIN NUTRIENT_AMOUNT ON FOOD_NAME.FoodID = NUTRIENT_AMOUNT.FoodID
+        WHERE FOOD_NAME.FoodID = 20;
+        ```
+        <!-- .element: class="delayed" -->
+        
+        ![SOlution 5](framework/img/workshop/ex5_solution.png)<!-- .element: class="delayed" -->
       </script>
     </article>
     
