@@ -738,7 +738,7 @@
         ```
         <!-- .element: class="delayed" -->
         
-        ![SOlution 5](framework/img/workshop/ex5_solution.png)<!-- .element: class="delayed" -->
+        ![Solution 5](framework/img/workshop/ex5_solution.png)<!-- .element: class="delayed" -->
       </script>
     </article>
     
@@ -775,6 +775,44 @@
         ```
         
         > Notice the use of table name **aliases** (**fn**, **na** and **nn**) to shorten the query.
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Exercise 6
+        
+        Let's get a bit more practice joining tables:
+        
+        1. Take a look at the `FOOD_NAME`, `REFUSE_AMOUNT` and `REFUSE_NAME` tables
+        2. How can these tables be joined?
+        3. Select a food you like
+        4. Write a query to print the amounts of each type of refuse (waste) produced by a portion of that food
+        5. Each line should list: the **food name**, the **type of refuse**, the **amount of refuse**
+        
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Exercise 6: Solutions
+        
+        Your query should look like:
+        
+        ```sql
+        SELECT FoodDescription, RefuseDescription, RefuseAmount 
+        FROM FOOD_NAME fn
+             JOIN REFUSE_AMOUNT ra ON fn.FoodID = ra.FoodID
+             JOIN REFUSE_NAME rn ON ra.RefuseID = rn.RefuseID
+        WHERE fn.FoodID = 600;
+        ```
+        <!-- .element: class="delayed" -->
+        
+        <div>
+        The result should look like:
+        
+        ![Solution 6](framework/img/workshop/ex6_solution.png)
+        </div><!-- .element: class="delayed" -->
       </script>
     </article>
     
