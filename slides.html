@@ -476,24 +476,43 @@
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
-        # Exercise 2
+        # Exercise 2a
               
         Let's refine our previous query by adding a `WHERE` clause:
         
-        1. Use the condition `FoodID = 5` and `SELECT` only the food with ID `5` :
+        Use the condition `FoodID = 5` and `SELECT` only the food with ID `5` :
         ```sql
         SELECT *
         FROM FOOD_NAME
         WHERE FoodID = 5;
         ```
+        <!-- .element: class="delayed" -->
         
-        2. Design a query to `SELECT` those foods with IDs **up to and including** `10`
+        <div>
+        The result should look like this:
+        ![Solution 2a](framework/img/workshop/ex2a_solution.png)
+        </div><!-- .element: class="delayed" -->
+        
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Exercise 2b
+              
+        Design a query to `SELECT` those foods with IDs **up to and including** `10`:
+        
         ```sql
         SELECT *
         FROM FOOD_NAME
         WHERE FoodID <= 10;
         ```
         <!-- .element: class="delayed" -->
+        
+        <div>
+        The result should look like this:
+        ![Solution 2b](framework/img/workshop/ex2b_solution.png)
+        </div><!-- .element: class="delayed" -->
       </script>
     </article>
     
