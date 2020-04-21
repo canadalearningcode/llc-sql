@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Ladies Learning Code</title>
+  <link rel="stylesheet" href="framework/css/inspire.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/fonts.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/highlightjs/github.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/styles.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/a11y/plugin.css" data-noprefix>
+  <link rel="shortcut icon" href="framework/img/favicon.ico">
+
+  <!-- Takes care of CSS3 prefixes -->
+  <script src="framework/scripts/prefixfree.min.js"></script>
+
+  <!-- opens all links in a new window -->
+  <base target="_blank">
+</head>
+
+<body class="en">
+  <section>
+    <article class="slide welcome highlight">
+      <h1><img class="logo-stacked" src="framework/img/llc-logo-stacked-white.png" alt="Ladies Learning Code logo">Welcome!</h1>
+
+      <div class="instructions">
+
+        <h2>Download<br> & Install</h2>
+        <ol class="downloads">
+          <li>Learner files (zip file): <a href="https://github.com/ladieslearningcode/llc-sql/archive/master.zip">http://bit.ly/clc-sql</a>
+            <ul>
+              <li>unzip the learner file (<em>extract all</em> if you’re on a PC)</li>
+              <li>open <em>slides_abridged.html</em> in the browser to view the slides</li>
+            </ul>
+          </li>
+          <li>SQLite Browser: <a href="https://sqlitebrowser.org/dl/">https://sqlitebrowser.org/dl/</a></li>
+          </li>
+        </ol>
+      </div>
+      <footer>
+        <a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="framework/img/cc-by-nc.png" /></a>
+        <p class="left">Content created by <a href="https://ca.linkedin.com/in/matt-baum">Matthew Baum</a> for <a prefix="cc: http://creativecommons.org/ns#" href="http://ladieslearningcode.com" property="cc:attributionName" rel="cc:attributionURL">Ladies Learning Code</a></p>
+        <p class="right">Use the left <span class="arrow">&#8592;</span> and right <span class="arrow">&#8594;</span> arrow keys to navigate</p>
+      </footer>
+    </article>
+
+    <article class="slide intro">
+      <img class="logo" src="framework/img/llc-logo-white.png" alt="Ladies Learning Code logo">
+      <h1 class="heading-bg">
+        <span>Data Queries with SQL</span>
+      </h1>
+
+      <!-- FILL IN INSTRUCTOR DETAILS -->
+      <img class="instructor" src="http://placehold.it/225x225" alt="Instructor Name">
+      <h2><span class="cursive">with</span> Instructor name</h2>
+      <ul>
+        <li><a href="mailto:">hello@email.com</a></li>
+        <li><a href="http://website.com">website.com</a></li>
+        <li><a href="http://twitter.com/">@twitter</a></li>
+      </ul>
+
+      <div class="sponsor">
+        <p>In partnership with<br> <img src="framework/img/telus-logo-white.svg" alt="Telus"></p>
+      </div>
+      <footer>
+        <a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="framework/img/cc-by-nc.png" /></a>
+        <p class="left">Content created by <a href="https://ca.linkedin.com/in/matt-baum">Matthew Baum</a> for <a prefix="cc: http://creativecommons.org/ns#" href="http://ladieslearningcode.com" property="cc:attributionName" rel="cc:attributionURL">Ladies Learning Code</a></p>
+        <p class="right">Use the left <span class="arrow">&#8592;</span> and right <span class="arrow">&#8594;</span> arrow keys to navigate</p>
+      </footer>
+    </article>
+  </section>
+
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Introduction</h1>
+    </header>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Today's Project
+        
+        Data is ever present in our lives and, as we'll see today, SQL is a powerful language that allows us to extract useful insights from large quantities of information.
+        
+        We'll be working with real data from the Canadian government, called the [Canadian Nutrient File (CNF)](https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/nutrient-data.html)!
+        
+        This database contains nutritional information on over 5000 foods published by Health Canada.
+        
+        We'll start with SQL basics and then explore the data through some fun challenges.
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        # Agenda
+        
+        * Data and databases
+        * Reading data with SELECT
+        * Refining results with WHERE
+        * Ordering results
+        * Grouping Results
+        * SQL functions & math
+        * Joining tables
+        * Challenge exercises
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        # PLACEHOLDER
+        
+        ZOOM INSTRUCTIONS TO GO HERE
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        # Coders' code
+
+        1. Be friendly and welcoming
+        2. Be respectful of others by choosing words and actions with care
+        3. Be mindful of how much space you take up in conversations
+        4. Ask questions
+        5. Try your best (and have fun!)
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+      #Getting Set Up
+
+      1. Install SQLite DB Browser on your machine:
+        * Windows and MacOS: Execute the installer for your system  
+        * Linux: install the **sqlitebrowser** package
+      2. Launch SQLite Browser
+      3. Click "Open Database"
+      4. Navigate to /data/cnf.db inside the course folder you unzipped
+      5. Click "Open"
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+      You should see something like this:
+      ![SQLite Browser image](framework/img/workshop/open_browser.png)
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Good to go!
+        Now that we're set up, you can minimize the DB Browser.
+        
+        We'll come back to it later.
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #What is data?
+        Information technology and data are everywhere around us. In fact, more information is generated each year than was
+        ever produced by humanity prior to the Internet.
+        
+        But this begs the question:
+        
+        **"What exactly *is* data?"**
+        
+        What do you think?
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Data is
+
+        * units of information/facts (people's ages, the prices of homes, etc.)
+        * can be structured (a shopping list, a table like a celendar, etc.)
+        * can have a **type** (a number, some text, etc.)
+        * digital data: can be encoded and stored on a computer, and sent between them
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        # Uses for Data
+
+        Now that we have an idea of what data is, can you think of any common uses of data
+        in your daily life?
+
+        * Email: Sending and recieving textual data<!-- .element: class="delayed" -->
+        * Excel: Storing and analyzing data in tables<!-- .element: class="delayed" -->
+        * Voice calls: Exchanging audio data via phone/the Internet<!-- .element: class="delayed" -->
+        * Video streaming: Reading sequences of image data<!-- .element: class="delayed" -->
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Manipulating Data
+        
+        The various ways in which we can manipulate data are best remembered with the acronym CRUD:
+
+        * **C**reate
+        * **R**ead
+        * **U**pdate
+        * **D**elete
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Data Types
+        
+        As we hinted at earlier, data can be interpreted in different ways and classified into **types**.
+        
+        There is no limit to these types but we will consider:
+
+        * **INTEGER**: A whole number like `1`, `2` or `16`
+        * **REAL**: A real (floating point) number, like `3.5`
+        * **TEXT**: A string of characters like `"Hello, world!"`
+        * **NULL**: This value simply represents the absence of data (nothing)
+      </script>
+    </article>
+  </section>
+  
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Databases</h1>
+    </header>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #What is a Database?
+
+        By this point, we have an idea of what data is, but what is a database?
+        
+        * Structured data that can be queried (we can ask questions of the data)<!-- .element: class="delayed" -->
+        * Related data (data are linked. Ex.: a person and their job details)<!-- .element: class="delayed" -->
+        * Allows multiple users to safely manipulate the data at once<!-- .element: class="delayed" -->
+        
+        <div>
+        > There are others, but today we will learn about a common type called **relational databases!**
+        </div><!-- .element: class="delayed" -->
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Relational Databases
+        
+        * **Similar** data is stored in a **table**, called a **relation** (ex.: Person and City tables)
+        * Table **columns** describe **attributes** of the data (ex.: Person's name and age)
+        * Table **rows** represent a **data object** (ex.: an individual person)
+        * Rows are uniquely identified by an **ID** (ex.: social insurance number)
+          * These IDs are known as **primary keys**
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Database Table Diagram
+        
+        ![Relational diagram](framework/img/workshop/table_diagram.png)
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Relationships
+
+        Lines in two tables can be linked together using their primary keys (PK), establishing a **relationship**. For ex.:
+        
+        <ol>
+          <li>A line in the `PERSON` table describes `Mary`. Her PK is her SIN: `123456789`</li><!-- .element: class="delayed" -->
+          <li>A line in the `CITY` table describes `Montreal`. Its PK is the code: `YUL`</li><!-- .element: class="delayed" -->
+          <li>Values in the `HOMETOWN` column of `PERSON` **match** PKs from `CITY`</li><!-- .element: class="delayed" -->
+          <li>In Mary's case the value is `YUL`</li><!-- .element: class="delayed" -->
+          <li>Thus Mary's data links to her hometown data through this **relationship**</li><!-- .element: class="delayed" -->
+        </ol>
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Relational diagram
+
+        Our previous example can be illustrated as:
+        
+        ![Relational diagram](framework/img/workshop/relationship.png)
+        
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Today's Database
+        
+        We'll be working with **SQLite**, a simple relational database supporting the SQL language.
+        
+        It's a good learning tool and everything you learn will transfer to other SQL databases.
+        
+        Now, let's dig into the SQL language!
+      </script>
+    </article>
+  </section>
+
+  <section>
+    <header class="slide title" data-toc>
+      <h1>SQL</h1>
+    </header>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Who Uses SQL?
+        
+        SQL is used by thousands of companies, many of which you may know:
+        
+        * Facebook
+        * Youtube
+        * Netflix
+        * Uber
+        * Twitter
+        
+        Source: <a href="https://www.mysql.com/customers/industry/?id=">MySQL Clients</a>
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # SQL intro
+        
+        With a general understanding of databases, it's time to make use of our data!
+        
+        **S**tructured **Q**uery **L**anguage (**SQL**) lets us define, modify and read our data (CRUD).
+        
+        We'll focus on the part of SQL that asks questions of existing data (querying).
+        
+        Let's see what that looks like!
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Anatomy of a SQL Query
+        
+        A "question" to the database, formed of **clauses** (like individual sentences).
+        
+        Clauses include SQL **keywords** with **column** and **table** names to locate the data.
+        
+        You can refine the query with **conditions** (ex.: to filter, sort or group data).
+        
+        1. `SELECT` starts the 1st clause, followed by the columns we want.
+        2. `FROM` starts the 2nd clause, followed by the tables holding the data.
+        3. `;` terminates the statement 
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Example of a SELECT Query
+        
+        This most basic query looks something like this:
+        
+        ```sql
+        SELECT *
+        FROM table_name;
+        ```
+        
+        This returns the value of every column (`*`) for every row in `table_name`.
+        
+        Let's try a basic `SELECT` query in real time!
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Exercise 1
+              
+        1. Open our DB in SQLite Browser
+        2. Click on the "Execute SQL" Tab
+        3. Type the following query and strike `F5` (or click &#9654;)
+        
+        ```sql
+        SELECT *
+        FROM FOOD_NAME;
+        ```
+        
+        You should see a table in the result pane below where you entered the query:
+        ![Solution 1](framework/img/workshop/grp_ex_1.png)
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # The WHERE Clause
+              
+        What if we want to get only specific entries from our data?
+        
+        The `WHERE` clause **can** follow the `FROM` clause, and allows to do this:
+        
+        ```sql
+        WHERE (column operator operand)
+        ```
+        
+        Where:
+        
+        1. **column** is the attribute we want to test
+        2. **operator** is the type of comparison (ex.: `=`, `<`, `>`, `<=`, `>=`, `LIKE`, `IN`)
+        3. **operand** is the value we want to match
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Exercise 2
+              
+        Let's refine our previous query by adding a `WHERE` clause:
+        
+        1. Use the condition `FoodID = 5` and `SELECT` only the food with ID `5` :
+        ```sql
+        SELECT *
+        FROM FOOD_NAME
+        WHERE FoodID = 5;
+        ```
+        
+        2. Design a query to `SELECT` those foods with IDs **up to and including** `10`
+        ```sql
+        SELECT *
+        FROM FOOD_NAME
+        WHERE FoodID <= 10;
+        ```
+        <!-- .element: class="delayed" -->
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Matching text with LIKE
+              
+        We filtered data by comparing numbers, but what if we want to search for text?
+        `LIKE` exists for this:
+        
+        ```sql
+        WHERE column_name LIKE "some text here"
+        ```
+        
+        1. Use `"` around the required text
+        2. Use `%` to match anything (wild card)
+            * `"apple%"` matches a string **beginning** in `"apple"`
+            * `"%apple"` must **end** in `"apple"`
+            * `"%apple%"` must contain `"apple"` **anywhere**
+            * `"apple"` matches that string **exactly**
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Exercise 3
+        
+        Take 5 minutes to:
+              
+        1. Pick some **terms** to search the `FOOD_NAME` table for
+        2. Experiment with selecting data by matching different strings
+        3. Experiment with the use of wildcards
+        
+        <div>
+        Example:
+        ```sql
+        SELECT *
+        FROM FOOD_NAME
+        WHERE FoodDescription LIKE "%apple%";
+        ```
+        </div><!-- .element: class="delayed" -->
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Ordering Results
+        
+        Data can be ordered using the `ORDER BY` clause, following the `FROM` and `WHERE` clauses:
+        
+        ```sql
+        ORDER BY (columns) (ASC|DESC)
+        ```
+        
+        Where:
+        
+        * **(columns)** is one or more columns to order on (separated by `,`)
+        * **(ASC|DESC)**: `ASC` to sort in ascending order, or `DESC` to sort in descending order
+          
+        Let's try that out!
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Exercise 4
+        
+        Let's reuse our last query using `LIKE` to:
+              
+        1. Sort elements by `FoodID`, from largest to smallest
+        2. Sort elements in ascending order on `FoodDescription`
+        
+        <div>
+        For example:
+        
+        ```sql
+        SELECT FoodID, FoodGroupID, FoodSourceID, FoodDescription
+        FROM FOOD_NAME
+        WHERE FoodDescription LIKE "%apple%"
+        ORDER BY FoodID DESC;
+        ```
+        </div><!-- .element: class="delayed" -->
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Grouping Results
+        
+        The `GROUP BY` clause combines rows and calculates total values for these groups.
+        
+        Thus:
+        
+        ```sql
+        GROUP BY column_name
+        ```
+        
+        Combines rows with identical values in `column_name`, or "throws them all in the same bucket".
+        
+        What happens to the other columns that were different between rows?
+        
+        For this, we'll need to look at some **SQL functions**!
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        To illustrate, the following grouping of the Professors table 
+        places results into two buckets, but what value should appear 
+        for the value of Salary in each group?
+        
+        ![Solution 1](framework/img/workshop/group_by_diagram.png)
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # SQL Functions
+        
+        Imagine we're grouping similar rows together in a common bucket.
+        
+        What might we want to know about the contents of the bucket?
+        
+        <ul>
+          <li>The **number of** elements in the bucket: `COUNT()`</li><!-- .element: class="delayed" -->
+          <li>The **average value** of a column: `AVG()`</li><!-- .element: class="delayed" -->
+          <li>The **sum** of a column: `SUM()`</li><!-- .element: class="delayed" -->
+          <li>The **smallest** value in a column: `MIN()`</li><!-- .element: class="delayed" -->
+          <li>The **largest** value in a column: `MAX()`</li><!-- .element: class="delayed" -->
+        </ul>
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Function Example
+        
+        The following query counts the foods containing `"apple"`.
+        
+        Notice the use of the keyword `AS` to give a new name to the column we create:
+        
+        ```sql
+        SELECT COUNT(*) AS APPLE_COUNT
+        FROM FOOD_NAME
+        WHERE FoodDescription LIKE "%apple%";
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Back to GROUP BY
+        
+        How can we determine how many foods exist in each food group?
+        
+        ```sql
+        SELECT FoodGroupID, COUNT(FoodID) AS "Foods in Group"
+        FROM FOOD_NAME
+        GROUP BY FoodGroupID;
+        ```
+        
+        Columns that appear **outside** of functions in `SELECT` normally appear in `GROUP BY`.
+        
+        Other columns are calculations over the whole group.
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Joining Tables
+        
+        We want to manipulate related data from **different** tables by **matching ID values**.
+        
+        There are different ways to do this. We'll focus on `INNER JOIN` (or simply `JOIN`) :
+        
+        ```sql
+        SELECT columns
+        FROM table1 JOIN table2 ON table1.column = table2.column;
+        ```
+        
+        > For other joins, look up `OUTER JOIN` (`LEFT`, `RIGHT` or `FULL`) and `NATURAL JOIN`. Tables can also be joined in the `WHERE` clause.
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # The JOIN statement
+        
+        Let's join the `FOOD_NAME` and `NUTRIENT_AMOUNT` tables, to get nutrient breakdown for food ID `20` (brie cheese):
+        
+        ```sql
+        SELECT NutrientID, NutrientValue
+        FROM FOOD_NAME
+             JOIN NUTRIENT_AMOUNT ON FOOD_NAME.FoodID = NUTRIENT_AMOUNT.FoodID
+        WHERE FOOD_NAME.FoodID = 20;
+        ```
+        <!-- .element: class="delayed" -->
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Joining more than two tables
+        
+        We can join more than two tables at a time.
+        
+        Let's practice by joining 3 tables to get the names of the nutrients:
+        
+        ```sql
+        SELECT NutrientName, NutrientValue
+        FROM FOOD_NAME
+             JOIN NUTRIENT_AMOUNT ON FOOD_NAME.FoodID = NUTRIENT_AMOUNT.FoodID
+             JOIN NUTRIENT_NAME ON NUTRIENT_AMOUNT.NutrientID = NUTRIENT_NAME.NutrientID
+        WHERE fn.FoodID = 20;
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Table Aliases
+        
+        A query with many repeating table names can be simplified as follows:
+        
+        ```sql
+        SELECT NutrientName, NutrientValue
+        FROM FOOD_NAME fn
+             JOIN NUTRIENT_AMOUNT na ON fn.FoodID = na.FoodID
+             JOIN NUTRIENT_NAME nn ON na.NutrientID = nn.NutrientID
+        WHERE fn.FoodID = 20;
+        ```
+        
+        > Notice the use of table name **aliases** (**fn**, **na** and **nn**) to shorten the query.
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # The "IN" Operator
+        
+        We sometimes want to compare a column to a list of values in the `WHERE` clause.
+        
+        The `IN` operator, followed by a list of values between `(` and `)` allows us to do so:
+        
+        ```sql
+        SELECT FoodID,FoodDescription
+        FROM FOOD_NAME
+        WHERE FoodID IN (10,20,30);
+        ```
+        
+        <div>
+        > The parentheses can contain an entire `SELECT` query returning the values to compare against.
+        This is called a **nested query**, and will not be covered in this session.
+        </div><!-- .element: class="delayed" -->
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # SQL Math
+        
+        Finally, let's look at running some math on column values before returning a result!
+        
+        This is useful to change a number column for reporting.
+        
+        The common math operators are:
+        
+        * Addition: `+`
+        * Subtraction: `-`
+        * Multiplication: `*`
+        * Division: `/`
+        * Modulo: `%` (remainder after integer division)
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Math Example
+        
+        CNF lists nutrients for a portion of 100g. What if we want the amount/gram?
+        
+        We can get nutrients/gram for brie cheese by modifying our query as follows:
+        
+        ```sql
+        SELECT NutrientName, (NutrientValue/100) AS "Nutrient per gram"
+        FROM FOOD_NAME fn
+             JOIN NUTRIENT_AMOUNT na ON fn.FoodID = na.FoodID
+             JOIN NUTRIENT_NAME nn ON na.NutrientID = nn.NutrientID
+        WHERE fn.FoodID = 20;
+        ```
+        <!-- .element: class="delayed" -->
+        
+        <div>
+        > We used a fixed number here, but we could have used another column in the calculation.
+        </div><!-- .element: class="delayed" -->
+      </script>
+    </article>
+  </section>
+
+  
+  
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Challenge Problems</h1>
+    </header>
+
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge Intro
+
+        The world of nutrition can be confusing!
+        
+        As an expert in the field, you rely on data to guide the colorful characters that show up to your practice with concerns.
+        
+        Try your hand at solving the following problems **with a single query** to test your SQL skills.
+        
+        Don't forget to have fun!
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 1: Critical Groups
+
+        Ms. Flamm Boyant, France's foremost food critic is visiting your city!
+        
+        She has heard of Canada's intriguing "food groups" and her request is simple.
+        
+        She requires:
+        
+        * A list of the food groups available
+        * The number of foods in each group
+        * The groups listed from largest (most foods) to smallest
+        
+        > Find her this data before she writes a bad review on social media!
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 1 Solution
+
+        ```sql
+        SELECT FoodGroupName, COUNT(*) AS FoodCount
+        FROM FOOD_NAME fn JOIN FOOD_GROUP fg 
+            ON fn.FoodGroupID = fg.FoodGroupID
+        GROUP BY fg.FoodGroupID
+        ORDER BY FoodCount DESC;
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 2: I Want my Greens
+
+        Brock O. Lee is adopting a new low-carb diet.
+        
+        He requires foods matching the follwing criteria:
+        
+        * Must be a **vegetable**
+        * Must be **green**
+        * Must have **less than 10 grams of carbs** for a 100 gram portion
+        
+        Your client wants a simple table listing all of these foods with the name of the food and the grams of carbs, from least to most.
+        
+        > **Hint**: What is the food group for vegetables? What is the nutrient ID for carbs? Which 2 tables should you join in this query? 
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 2 Solution
+
+        ```sql
+        SELECT FoodDescription, NutrientValue AS "Grams of Carbs"
+        FROM FOOD_NAME fn JOIN NUTRIENT_AMOUNT na ON fn.FoodID = na.FoodID
+        WHERE FoodGroupID = 11 
+            AND FoodDescription LIKE "%green%" 
+            AND NutrientID = 205
+            AND NutrientValue < 10
+        ORDER BY NutrientValue ASC;
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 3: Zigzag Meal Plan
+
+        Amanda A. Appleton has always hated the letter "z".
+        
+        This unusual phobic state has now resulted in a health condition, as she suffers from a zinc deficiency!
+        
+        A woman her age requires `8mg` of zinc daily.
+        
+        Her doctor recommends the following treatment:
+        
+        * Eat foods providing **at least half** the daily requirement per 100g portion
+        * Eat foods containing the letter "z" n their descriptions, to desensitize yourself from the phobia
+        
+        > Run a quick query to provide her with a list of suitable foods!
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 3 Solution
+
+        ```sql
+        SELECT FoodDescription, NutrientValue
+        FROM FOOD_NAME fn JOIN NUTRIENT_AMOUNT na 
+            ON fn.FoodID = na.FoodID
+        WHERE NutrientID = 309 
+            AND NutrientValue >= 4 
+            AND FoodDescription LIKE '%z%';
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 4: No Leftovers!
+
+        Your highschool math  teacher bursts through the door!
+        
+        He's joined an environmental organization and is convinced there's a conspiracy at play!
+        
+        He needs a list of foods whose `ID` is **evenly divided** by their `RefuseAmount`.
+        
+        You try to explain this doesn't make much sense, but he's adamant.
+        
+        > **Note** : A number is evenly divided by another when there's no remainder after division (the `%` of the numbers is `0`)
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 4 Solution
+
+        ```sql
+        SELECT fn.FoodID, FoodDescription, RefuseAmount
+        FROM FOOD_NAME fn JOIN REFUSE_AMOUNT ra 
+            ON fn.FoodID = ra.FoodID
+        WHERE RefuseID = 750 
+            AND (fn.FoodID % RefuseAmount = 0);
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 4b: Leftovers = Profit
+
+        Your old teacher's ecstatic!
+        
+        He offers to pay you `$0.50` for **each unit of refuse** in your list, instead of your flat rate of $200.00.
+        
+        Your not sure if he's trying to short-change you or if he's truly lost his mind.
+        
+        > Adjust your query to calculate your pay and find out!
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 4b Solution
+
+        ```sql
+        SELECT (SUM(RefuseAmount) * 0.50) AS Pay
+        FROM FOOD_NAME fn JOIN REFUSE_AMOUNT ra 
+            ON fn.FoodID = ra.FoodID
+        WHERE RefuseID = 750 
+            AND (fn.FoodID % RefuseAmount = 0);
+        ```
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 5: Canned Threats
+
+        Mac N. Cheese has been eating too many processed foods and his doctor has reccomended avoiding foods with the following properties (taken together):
+        
+        * At least **20 grams of total fat** (ID: `205`) per 100g serving
+        * At least **2%** of those fats are **trans fats** (ID: `605`)
+        
+        There's only one problem: Mr. Cheese is data illiterate!
+        
+        Help him out by producing a list of foods to avoid, with the name of the food, the total grams of fat and the percentage of trans fat.
+        
+        > **Hint**: This one's tough! You'll need to `JOIN` together two separate `SELECT` queries (one for each type of fat)!
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Challenge 5 Solution
+
+        ```sql
+        SELECT a.FoodDescription, "Total Fat", ("Total Trans Fat"/"Total Fat"*100) AS "Trans Fat %"
+        FROM 
+            (
+                SELECT fn.FoodID, FoodDescription, NutrientValue AS "Total Fat"
+                FROM FOOD_NAME fn JOIN NUTRIENT_AMOUNT na ON fn.FoodID = na.FoodID
+                WHERE NutrientID = 205
+            ) a 
+            JOIN 
+            (
+                SELECT fn.FoodID, FoodDescription, NutrientValue AS "Total Trans Fat"
+                FROM FOOD_NAME fn JOIN NUTRIENT_AMOUNT na ON fn.FoodID = na.FoodID
+                WHERE NutrientID = 605
+            ) b 
+            ON a.FoodID = b.FoodID
+        WHERE "Total Fat" >= 20 AND "Trans Fat %" >= 2;
+        ```
+      </script>
+    </article>
+  </section>
+  
+  <section>
+    <header class="slide title" data-toc>
+      <h1>Conclusion</h1>
+    </header>
+
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #What we covered today
+
+        1. What data and databases are
+        1. What SQL is
+        1. Reading data with `SELECT`, `FROM` and `JOIN`
+        1. Searching for text using `LIKE`
+        1. Refining results with `WHERE`
+        1. Ordering data using `ORDER BY`
+        1. Grouping data using `GROUP BY`
+        1. Performing math on results
+        1. Analyzing existing data
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #Next Steps
+
+        * Review you knowledge with SQL <a href="https://www.w3schools.com/sql/sql_exercises.asp">exercises</a> and a <a href="https://www.w3schools.com/sql/sql_quiz.asp">quiz</a>
+        * Learn to <a href="https://www.w3schools.com/sql/sql_create_table.asp">create tables</a>, 
+        <a href="https://www.w3schools.com/sql/sql_update.asp">update rows</a> or <a href="https://www.w3schools.com/sql/sql_delete.asp">delete rows</a>
+        * Use SQL to play a game and <a href="https://mystery.knightlab.com/">solve a murder mystery!</a>
+        * Try practice problems at <a href="https://sqlzoo.net/">SQL Zoo</a>
+        
+        > And of course, **start your own projects** and **use your new knowledge at work**!
+      </script>
+    </article>
+
+    <!-- Last slide -->
+    <article class="slide last">
+      <h1>Thank you!</h1>
+      <h2 class="heading-bg">
+        <span>Data Queries with SQL</span>
+      </h2>
+
+      <img class="instructor" src="http://cl.ly/image/0r3Q3H110G36/profile-generic.jpg" alt="instructor name">
+      <h2><span class="cursive">with</span> Instructor Name</h2>
+      <ul>
+        <li><a href="mailto:">hello@email.com</a></li>
+        <li><a href="#">mywebsite.com</a></li>
+      </ul>
+
+      <p class="attribution">Slide presentation created by <a href="http://christinatruong.com">Christina Truong</a> based on <a href="https://github.com/LeaVerou/csss">Lea Verou's SlideShow</a> and <a href="http://lab.hakim.se/reveal-js/">reveal.js</a>.</p>
+    </article>
+  </section>
+
+  <script src="framework/scripts/jquery-3.4.1.slim.min.js"></script>
+  <script src="framework/scripts/inspire.js"></script>
+
+  <!-- Uncomment the plugins you need -->
+  <script src="framework/scripts/plugins/css-edit.js"></script>
+  <script src="framework/scripts/plugins/css-snippets.js"></script>
+  <script src="framework/scripts/plugins/css-controls.js"></script>
+  <!-- <script src="plugins/code-highlight.js"></script>-->
+
+  <script src="framework/scripts/plugins/markdown/marked.js"></script>
+  <script src="framework/scripts/plugins/markdown/markdown.js"></script>
+  <script src="framework/scripts/plugins/a11y/plugin.js"></script>
+  <script src="framework/scripts/plugins/highlight/highlight-8.4.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="framework/scripts/llc.js"></script>
+</body>
+</html>
