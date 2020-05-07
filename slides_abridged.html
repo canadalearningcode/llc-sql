@@ -202,7 +202,7 @@
         #Data is
 
         * units of information/facts (people's ages, the prices of homes, etc.)
-        * can be structured (a shopping list, a table like a celendar, etc.)
+        * can be structured (a shopping list, a credit card statement, etc.)
         * can have a **type** (a number, some text, etc.)
         * digital data: can be encoded and stored on a computer, and sent between them
       </script>
@@ -321,6 +321,7 @@
         Our previous example can be illustrated as:
         
         ![Relational diagram](framework/img/workshop/relationship.png)
+        ![Relational diagram tables](framework/img/workshop/rd_tables.png)
         
       </script>
     </article>
@@ -330,6 +331,9 @@
         #Today's Database
         
         We'll be working with **SQLite**, a simple relational database supporting the SQL language.
+        
+        SQLite is a free and open source database requiring little or no installation and commonly used by apps on iOS (iPhone) and Android. It's also used by the likes of Facebook and Google.
+        See [this page](https://www.sqlite.org/famous.html) for a list of companies using this DB.
         
         It's a good learning tool and everything you learn will transfer to other SQL databases.
         
@@ -347,7 +351,9 @@
       <script type="text/template">
         # Who Uses SQL?
         
-        SQL is used by thousands of companies, many of which you may know:
+        SQL is the **most widely used** database query language today and **millions of companies** and products run using SQL for their data needs.
+        
+        Here are a few you may know:
         
         * Facebook
         * Youtube
@@ -404,13 +410,70 @@
         This most basic query looks something like this:
         
         ```sql
+        SELECT my_column
+        FROM table_name;
+        ```
+        
+        This returns the value of `my_column` for **every row** in `table_name`.
+        
+        > But what if we want all of the columns in the table? Do we have to know each of the column names?
+        
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # SQL Wildcards
+        
+        **Wildcards** are special characters (letters, numbers, etc.) that can replace any other character in a query.
+        
+        They get their name from "wild cards" in card games, which can substitue for any other card.
+        For example, in Deuces Wild poker, 2's can replace any card in the game.
+        
+        The wildcards we'll see today are arguably the most common (both replace zero or more characters in a row):
+        
+        * `*` is typically used to match any column name in a `SELECT` clause
+        * `%` is typically used to match characters when searching text, as we'll see later
+        
+        > Other more precise wildcards exist, as described [here](https://www.w3schools.com/sql/sql_wildcards.asp).
+        
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # SELECT with a Wildcard
+        
+        We can thus modify our previous example to select **all** columns in our table:
+        
+        ```sql
         SELECT *
         FROM table_name;
         ```
         
-        This returns the value of every column (`*`) for every row in `table_name`.
+        This returns the value of **each column** for **every row** in `table_name`.
         
         Let's try a basic `SELECT` query in real time!
+        
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Exercise 1: Prep
+              
+        Let's go back to SQLite DB Browser!
+        
+        Before we run our query, let's all take look at our tables together.
+        
+        1. Click on the "Browse Data" tab
+        2. Select tables, such as `FOOD_NAME`, from the dropdown menu
+        
+        ![Browse Data Tab](framework/img/workshop/browse_data.png)
+        
+        Can we identify the **rows** and **columns** in our table?
+        
+        What are the data types of our attributes?
       </script>
     </article>
     
@@ -418,9 +481,8 @@
       <script type="text/template">
         # Exercise 1
               
-        1. Open our DB in SQLite Browser
-        2. Click on the "Execute SQL" Tab
-        3. Type the following query and strike `F5` (or click &#9654;)
+        1. Click on the "Execute SQL" Tab
+        2. Type the following query and strike `F5` (or click &#9654;)
         
         ```sql
         SELECT *
@@ -428,7 +490,7 @@
         ```
         
         You should see a table in the result pane below where you entered the query:
-        ![Solution 1](framework/img/workshop/grp_ex_1.png)
+        ![Solution 1](framework/img/workshop/grp_ex_1.png)<!-- .element: class="delayed" -->
       </script>
     </article>
     
@@ -454,24 +516,43 @@
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
-        # Exercise 2
+        # Exercise 2a
               
         Let's refine our previous query by adding a `WHERE` clause:
         
-        1. Use the condition `FoodID = 5` and `SELECT` only the food with ID `5` :
+        Use the condition `FoodID = 5` and `SELECT` only the food with ID `5` :
         ```sql
         SELECT *
         FROM FOOD_NAME
         WHERE FoodID = 5;
         ```
+        <!-- .element: class="delayed" -->
         
-        2. Design a query to `SELECT` those foods with IDs **up to and including** `10`
+        <div>
+        The result should look like this:
+        ![Solution 2a](framework/img/workshop/ex2a_solution.png)
+        </div><!-- .element: class="delayed" -->
+        
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Exercise 2b
+              
+        Design a query to `SELECT` those foods with IDs **up to and including** `10`:
+        
         ```sql
         SELECT *
         FROM FOOD_NAME
         WHERE FoodID <= 10;
         ```
         <!-- .element: class="delayed" -->
+        
+        <div>
+        The result should look like this:
+        ![Solution 2b](framework/img/workshop/ex2b_solution.png)
+        </div><!-- .element: class="delayed" -->
       </script>
     </article>
     
@@ -505,14 +586,15 @@
         2. Experiment with selecting data by matching different strings
         3. Experiment with the use of wildcards
         
-        <div>
-        Example:
         ```sql
         SELECT *
         FROM FOOD_NAME
         WHERE FoodDescription LIKE "%apple%";
         ```
-        </div><!-- .element: class="delayed" -->
+        <!-- .element: class="delayed" -->
+        
+        ![Solution 3](framework/img/workshop/ex3_solution.png)<!-- .element: class="delayed" -->
+        
       </script>
     </article>
     
@@ -544,16 +626,15 @@
         1. Sort elements by `FoodID`, from largest to smallest
         2. Sort elements in ascending order on `FoodDescription`
         
-        <div>
-        For example:
-        
         ```sql
         SELECT FoodID, FoodGroupID, FoodSourceID, FoodDescription
         FROM FOOD_NAME
         WHERE FoodDescription LIKE "%apple%"
         ORDER BY FoodID DESC;
         ```
-        </div><!-- .element: class="delayed" -->
+        <!-- .element: class="delayed" -->
+        
+        ![Solution 4](framework/img/workshop/ex4_solution.png)<!-- .element: class="delayed" -->
       </script>
     </article>
     
@@ -583,7 +664,7 @@
         places results into two buckets, but what value should appear 
         for the value of Salary in each group?
         
-        ![Solution 1](framework/img/workshop/group_by_diagram.png)
+        ![GROUP BY Diagram](framework/img/workshop/group_by_diagram.png)
       </script>
     </article>
     
@@ -658,17 +739,46 @@
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
-        # The JOIN statement
+        # Visualizing JOIN
+        
+        This Venn diagram illustrates the `INNER JOIN` operation, which returns **only** those rows that have **matching values** in the chosen column in **both tables**:
+        
+        ![INNER JOIN Venn Diagram](framework/img/workshop/venn_inner_join.png)
+        
+        > Diagrams for other types of JOINs can be seen [here](https://www.w3schools.com/sql/sql_join.asp).
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Exercise 5: Prep
+        
+        Let's go back to SQLite BD Browser for a moment:
+        
+        1. Go to "Browse Data"
+        2. Inspect the `FOOD_NAME` and `NUTRIENT_AMOUNT` tables
+        
+        > Which column(s) do they have in common that would allow us to `JOIN` them on matching values?
+        
+        Answer: `FoodID`<!-- .element: class="delayed" -->
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Exercise 5: The JOIN statement
         
         Let's join the `FOOD_NAME` and `NUTRIENT_AMOUNT` tables, to get nutrient breakdown for food ID `20` (brie cheese):
         
         ```sql
-        SELECT NutrientID, NutrientValue
+        SELECT NutrientID, NutrientValue 
         FROM FOOD_NAME
              JOIN NUTRIENT_AMOUNT ON FOOD_NAME.FoodID = NUTRIENT_AMOUNT.FoodID
         WHERE FOOD_NAME.FoodID = 20;
         ```
         <!-- .element: class="delayed" -->
+        
+        ![Solution 5](framework/img/workshop/ex5_solution.png)<!-- .element: class="delayed" -->
       </script>
     </article>
     
@@ -705,6 +815,44 @@
         ```
         
         > Notice the use of table name **aliases** (**fn**, **na** and **nn**) to shorten the query.
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Exercise 6
+        
+        Let's get a bit more practice joining tables:
+        
+        1. Take a look at the `FOOD_NAME`, `REFUSE_AMOUNT` and `REFUSE_NAME` tables
+        2. How can these tables be joined?
+        3. Select a food you like
+        4. Write a query to print the amounts of each type of refuse (waste) produced by a portion of that food
+        5. Each line should list: the **food name**, the **type of refuse**, the **amount of refuse**
+        
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        # Exercise 6: Solutions
+        
+        Your query should look like:
+        
+        ```sql
+        SELECT FoodDescription, RefuseDescription, RefuseAmount 
+        FROM FOOD_NAME fn
+             JOIN REFUSE_AMOUNT ra ON fn.FoodID = ra.FoodID
+             JOIN REFUSE_NAME rn ON ra.RefuseID = rn.RefuseID
+        WHERE fn.FoodID = 600;
+        ```
+        <!-- .element: class="delayed" -->
+        
+        <div>
+        The result should look like:
+        
+        ![Solution 6](framework/img/workshop/ex6_solution.png)
+        </div><!-- .element: class="delayed" -->
       </script>
     </article>
     
@@ -771,8 +919,6 @@
     </article>
   </section>
 
-  
-  
   <section>
     <header class="slide title" data-toc>
       <h1>Challenge Problems</h1>
@@ -1010,6 +1156,23 @@
         1. Grouping data using `GROUP BY`
         1. Performing math on results
         1. Analyzing existing data
+      </script>
+    </article>
+    
+    <article class="slide small-type" data-markdown>
+      <script type="text/template">
+        #How might you use SQL?
+        
+        SQL is used in the databases serving many business roles, including:
+        
+        * Customer Support
+        * Marketing
+        * Sales
+        * Finance
+        * Have you heard about Business Intelligence (BI)?
+        
+        > What do **you** think? Maybe SQL can provide you with insight into data you already work with!
+
       </script>
     </article>
     
