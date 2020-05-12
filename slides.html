@@ -768,7 +768,7 @@
         FROM FOOD_NAME
              JOIN NUTRIENT_AMOUNT ON FOOD_NAME.FoodID = NUTRIENT_AMOUNT.FoodID
              JOIN NUTRIENT_NAME ON NUTRIENT_AMOUNT.NutrientID = NUTRIENT_NAME.NutrientID
-        WHERE fn.FoodID = 20;
+        WHERE FOOD_NAME.FoodID = 20;
         ```
       </script>
     </article>
