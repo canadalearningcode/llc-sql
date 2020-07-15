@@ -436,17 +436,19 @@
               
         What if we want to get only specific entries from our data?
         
-        The `WHERE` clause **can** follow the `FROM` clause, and allows to do this:
+        The `WHERE` clause **can** follow the `FROM` clause, and allows to do this, like so:
         
         ```sql
-        WHERE (column operator operand)
+        SELECT *
+        FROM FOOD_NAME
+        WHERE column operator value;
         ```
         
         Where:
         
         1. **column** is the attribute we want to test
-        2. **operator** is the type of comparison (ex.: `=`, `<`, `>`, `<=`, `>=`, `LIKE`)
-        3. **operand** is the value we want to match
+        2. **operator** is the type of comparison (ex.: `=`, `<`, `>`, `<=`, `>=`)
+        3. **value** is the value we want to match
       </script>
     </article>
     
@@ -518,7 +520,7 @@
         
         Take 5 minutes to:
               
-        1. Pick some **terms** to search the `FOOD_NAME` table for
+        1. Pick a **term** to search for in the `FoodDescription` column in the `FOOD_NAME` table
         2. Experiment with selecting data by matching different strings
         3. Experiment with the use of wildcards
         
@@ -541,13 +543,15 @@
         Data can be ordered using the `ORDER BY` clause, following the `FROM` and `WHERE` clauses:
         
         ```sql
-        ORDER BY (columns) (ASC|DESC)
+        SELECT *
+        FROM my_table
+        ORDER BY my_column (ASC or DESC)
         ```
         
         Where:
         
-        * **(columns)** is one or more columns to order on (separated by `,`)
-        * **(ASC|DESC)**: `ASC` to sort in ascending order, or `DESC` to sort in descending order
+        * **my_column** is the column to order by
+        * **(ASC or DESC)**: `ASC` to sort in ascending order, or `DESC` to sort in descending order
           
         Let's try that out!
       </script>
@@ -557,7 +561,7 @@
       <script type="text/template">
         # Exercise 4
         
-        Let's reuse our last query using `LIKE` to:
+        Let's reuse our last query with `LIKE` to:
               
         1. Sort elements by `FoodID`, from largest to smallest
         2. Sort elements in ascending order on `FoodDescription`
@@ -587,10 +591,6 @@
         ```
         
         Combines rows with identical values in `column_name`, or "throws them all in the same bucket".
-        
-        What happens to the other columns that were different between rows?
-        
-        For this, we'll need to look at some **SQL functions**!
       </script>
     </article>
     
@@ -608,6 +608,8 @@
       <script type="text/template">
         # SQL Functions
         
+        Functions return intersting stats on query results.
+        
         Imagine we're grouping similar rows together in a common bucket.
         
         What might we want to know about the contents of the bucket?
@@ -624,28 +626,12 @@
     
     <article class="slide small-type" data-markdown>
       <script type="text/template">
-        # Function Example
-        
-        The following query counts the foods containing `"apple"`.
-        
-        Notice the use of the keyword `AS` to give a new name to the column we create:
-        
-        ```sql
-        SELECT COUNT(*) AS APPLE_COUNT
-        FROM FOOD_NAME
-        WHERE FoodDescription LIKE "%apple%";
-        ```
-      </script>
-    </article>
-    
-    <article class="slide small-type" data-markdown>
-      <script type="text/template">
         # Back to GROUP BY
         
         How can we determine how many foods exist in each food group?
         
         ```sql
-        SELECT FoodGroupID, COUNT(FoodID) AS "Foods in Group"
+        SELECT FoodGroupID, COUNT(*) AS "Foods in Group"
         FROM FOOD_NAME
         GROUP BY FoodGroupID;
         ```
