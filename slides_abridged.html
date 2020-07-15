@@ -251,7 +251,6 @@
         
         * Structured data that can be queried (we can ask questions of the data)<!-- .element: class="delayed" -->
         * Related data (data are linked. Ex.: a person and their job details)<!-- .element: class="delayed" -->
-        * Allows multiple users to safely manipulate the data at once<!-- .element: class="delayed" -->
         
         <div>
         > There are others, but today we will learn about a common type called **relational databases!**
@@ -261,19 +260,8 @@
 
     <article class="slide" data-markdown>
       <script type="text/template">
-        #Relational Databases
-        
-        * **Similar** data is stored in a **table**, called a **relation** (ex.: Person and City tables)
-        * Table **columns** describe **attributes** of the data (ex.: Person's name and age)
-        * Table **rows** represent a **data object** (ex.: an individual person)
-        * Rows are uniquely identified by an **ID** (ex.: social insurance number)
-          * These IDs are known as **primary keys**
-      </script>
-    </article>
-    
-    <article class="slide" data-markdown>
-      <script type="text/template">
-        #Database Table Diagram
+        #Data in a Table
+        Here's an example of data on People, identified by social insurance numbers
         
         ![Relational diagram](framework/img/workshop/table_diagram.png)
       </script>
@@ -281,29 +269,13 @@
 
     <article class="slide" data-markdown>
       <script type="text/template">
-        #Relationships
-
-        Lines in two tables can be linked together using their primary keys (PK), establishing a **relationship**. For ex.:
+        #Relational Databases
         
-        <ol>
-          <li>A line in the `PERSON` table describes `Mary`. Her PK is her SIN: `123456789`</li><!-- .element: class="delayed" -->
-          <li>A line in the `CITY` table describes `Montreal`. Its PK is the code: `YUL`</li><!-- .element: class="delayed" -->
-          <li>Values in the `HOMETOWN` column of `PERSON` **match** PKs from `CITY`</li><!-- .element: class="delayed" -->
-          <li>In Mary's case the value is `YUL`</li><!-- .element: class="delayed" -->
-          <li>Thus Mary's data links to her hometown data through this **relationship**</li><!-- .element: class="delayed" -->
-        </ol>
-      </script>
-    </article>
-    
-    <article class="slide" data-markdown>
-      <script type="text/template">
-        #Relational diagram
-
-        Our previous example can be illustrated as:
-        
-        ![Relational diagram](framework/img/workshop/relationship.png)
-        ![Relational diagram tables](framework/img/workshop/rd_tables.png)
-        
+        * **Similar** data is stored in a **table**, called a **relation** (ex.: a Person table)
+        * Table **columns** describe **attributes** of the data (ex.: Person's name)
+        * Table **rows** represent a **data object** (ex.: an individual person)
+        * Rows are uniquely identified by an **ID** (ex.: social insurance number)
+          * These IDs are known as **primary keys**
       </script>
     </article>
     
@@ -715,6 +687,34 @@
         ```
         
         > For other joins, look up `OUTER JOIN` (`LEFT`, `RIGHT` or `FULL`) and `NATURAL JOIN`. Tables can also be joined in the `WHERE` clause.
+      </script>
+    </article>
+    
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Related Tables
+
+        Data in two tables can be related by corresponding IDs:
+        
+        ![Relational diagram](framework/img/workshop/relationship.png)
+        ![Relational diagram tables](framework/img/workshop/rd_tables.png)
+        
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
+        #Relationships
+
+        Lines in two tables can be linked together using their primary keys (PK), establishing a **relationship**. For ex.:
+        
+        <ol>
+          <li>A line in the `PERSON` table describes `Mary`. Her PK is her SIN: `123456789`</li><!-- .element: class="delayed" -->
+          <li>A line in the `CITY` table describes `Montreal`. Its PK is the code: `YUL`</li><!-- .element: class="delayed" -->
+          <li>Values in the `HOMETOWN` column of `PERSON` **match** PKs from `CITY`</li><!-- .element: class="delayed" -->
+          <li>In Mary's case the value is `YUL`</li><!-- .element: class="delayed" -->
+          <li>Thus Mary's data links to her hometown data through this **relationship**</li><!-- .element: class="delayed" -->
+        </ol>
       </script>
     </article>
     
