@@ -581,13 +581,11 @@
         
         The `GROUP BY` clause combines rows and calculates total values for these groups.
         
-        Thus:
-        
         ```sql
         GROUP BY column_name
         ```
         
-        Combines rows with identical values in `column_name`, or "throws them all in the same bucket".
+        Combines rows with identical values in `column_name`, or "throws them in the same bucket".
       </script>
     </article>
     
@@ -605,11 +603,9 @@
       <script type="text/template">
         # SQL Functions
         
-        Functions return intersting stats on query results.
+        Functions return intere sting stats on query results.
         
-        Imagine we're grouping similar rows together in a common bucket.
-        
-        What might we want to know about the contents of the bucket?
+        What might we want to know about the contents of a bucket grouping together many rows?
         
         <ul>
           <li>The **number of** elements in the bucket: `COUNT(*)`</li><!-- .element: class="delayed" -->
@@ -700,12 +696,14 @@
       <script type="text/template">
         # Exercise 5: Prep
         
-        Let's go back to SQLite BD Browser for a moment. Query the following tables and pay attention to the column names:
+        In the left pane of SQLite Browser, expand the following tables to view their columns:
         
         1. `FOOD_NAME`
         1. `NUTRIENT_AMOUNT`
+
+        ![Table Columns](framework/img/workshop/online_tbl_cols.png)
         
-        > Which column(s) do they have in common that would allow us to `JOIN` them on matching values?
+        > Which column do they have in common that would allow us to `JOIN` them on matching values?
         
         Answer: `FoodID`<!-- .element: class="delayed" -->
       </script>
