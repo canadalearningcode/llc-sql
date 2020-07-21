@@ -364,8 +364,6 @@
         
         Clauses include SQL **keywords** with **column** and **table** names to locate the data.
         
-        You can refine the query with **conditions** (ex.: to filter, sort or group data).
-        
         1. `SELECT` starts the 1st clause, followed by the columns we want.
         2. `FROM` starts the 2nd clause, followed by the tables holding the data.
         3. `;` terminates the statement
@@ -381,11 +379,11 @@
         This most basic query looks something like this:
         
         ```sql
-        SELECT my_column
-        FROM table_name;
+        SELECT FoodDescription
+        FROM FOOD_NAME;
         ```
         
-        This returns the value of `my_column` for **every row** in `table_name`.
+        This returns the value of `FoodDescription` for **every row** in `FOOD_NAME`.
         
         > But what if we want all of the columns in the table? Do we have to know each of the column names?
         
@@ -398,11 +396,10 @@
         
         **Wildcards** are special characters (letters, numbers, etc.) that can replace any other character in a query. They're like cards that can take on any value in a card game.
         
-        We'll see two wilcards today, the first is:
+        We'll see two wildcards today, the first is:
         
         * `*`, which is typically used to match any column name in a `SELECT` clause
         
-        Like this:
         ```sql
         SELECT *
         FROM table_name;
@@ -446,8 +443,8 @@
         Where:
         
         1. **column** is the attribute we want to test
-        2. **operator** is the type of comparison (ex.: `=`, `<`, `>`, `<=`, `>=`)
-        3. **value** is the value we want to match
+        1. **operator** is the type of comparison (ex.: `=`, `<`, `>`, `<=`, `>=`)
+        1. **value** is the value we want to match (ex.: a **number**)
       </script>
     </article>
     
@@ -477,7 +474,7 @@
       <script type="text/template">
         # Exercise 2b
               
-        Design a query to `SELECT` those foods with IDs **up to and including** `10`:
+        Design a query to `SELECT` those foods with IDs **up to and including** `10`. List your favorite food from the results in the chat!
         
         ```sql
         SELECT *
