@@ -1,6 +1,6 @@
 # Canada Learning Code
 
-# National Ladies Learning Code Day
+# Ladies Learning Code
 ## Managing Data with SQL
 
 This workshop covers the basics of data querying and analysis with the [Structured Query Language (SQL)](https://en.wikipedia.org/wiki/SQL).
