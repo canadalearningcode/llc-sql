@@ -247,6 +247,22 @@
 
     <article class="slide" data-markdown>
       <script type="text/template">
+        # Decolonizing Data
+
+        It is important to critically assess data by considering its source: where does this data come from? Who is controlling it?
+
+        Today's data is not exempt from bias and colonialism. Nutrition policy in Canada was informed by the scientist who authored Canada's initial Food Rules, who used data which exploited Indigenous children in residential schools by performing experiments on them.
+
+        According to Abigail Echo-Hawk, "decolonizing data means that the community itself is the one determining what is the information they want us to gather." Abigail reminds us that when collecting data, we do it in a way that truly serves our communities.
+        <br><br>
+
+        > <strong>Reference</strong><br><ul><li><a href="https://crosscut.com/2019/05/abigail-echo-hawk-art-and-science-decolonizing-data">Abigail Echo-Hawk on the art and science of 'decolonizing data' (Crosscut)</a></li><li><a href="https://www.cbc.ca/radio/unreserved/how-food-in-canada-is-tied-to-land-language-community-and-colonization-1.5989764/the-dark-history-of-canada-s-food-guide-how-experiments-on-indigenous-children-shaped-nutrition-policy-1.5989785">The dark history of Canada's Food Guide: How experiments on Indigenous children shaped nutrition policy (CBC)</a></li><li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3941673/">Canada's shameful history of nutrition research on residential school children: The need for strong medical ethics in Aboriginal health research.</a></li></ul>
+
+      </script>
+    </article>
+
+    <article class="slide" data-markdown>
+      <script type="text/template">
         #Manipulating Data
 
         The various ways in which we can manipulate data are best remembered with the acronym CRUD:
@@ -708,14 +724,14 @@
 
         In the left pane of SQLite Browser, expand the following tables to view their columns:
 
-        1. `FOOD_NAME`
+        1. `NUTRIENT_NAME`
         1. `NUTRIENT_AMOUNT`
 
-        ![Table Columns](framework/img/workshop/online_tbl_cols.png)
+        ![Table Columns](framework/img/workshop/online_tbl_cols_update.png)
 
         > Which column do they have in common that would allow us to `JOIN` them on matching values?
 
-        Answer: `FoodID`<!-- .element: class="delayed" -->
+        Answer: `NutrientID`<!-- .element: class="delayed" -->
       </script>
     </article>
 
@@ -723,17 +739,18 @@
       <script type="text/template">
         # Exercise 5: The JOIN statement
 
-        Let's join the `FOOD_NAME` and `NUTRIENT_AMOUNT` tables, to get nutrient breakdown for food ID `20` (brie cheese):
+        Let's join the `NUTRIENT_NAME` and `NUTRIENT_AMOUNT` tables, to get nutrient breakdown for food ID `20` (brie cheese):
 
         ```sql
-        SELECT NutrientID, NutrientValue
-        FROM FOOD_NAME
-             JOIN NUTRIENT_AMOUNT ON FOOD_NAME.FoodID = NUTRIENT_AMOUNT.FoodID
-        WHERE FOOD_NAME.FoodID = 20;
+        SELECT NutrientName, NutrientValue
+        FROM NUTRIENT_NAME
+             JOIN NUTRIENT_AMOUNT ON NUTRIENT_NAME.NutrientID = NUTRIENT_AMOUNT.NutrientID
+        WHERE NUTRIENT_AMOUNT.FoodID = 20;
         ```
         <!-- .element: class="delayed" -->
 
-        ![Solution 5](framework/img/workshop/online_ex5_solution.png)<!-- .element: class="delayed" -->
+        ![Solution 5](framework/img/workshop/online_ex5_solution_update.png)<!-- .element: class="delayed" -->
+
       </script>
     </article>
 
@@ -746,10 +763,10 @@
         Let's practice by joining 3 tables to get the names of the nutrients:
 
         ```sql
-        SELECT NutrientName, NutrientValue
-        FROM FOOD_NAME
-             JOIN NUTRIENT_AMOUNT ON FOOD_NAME.FoodID = NUTRIENT_AMOUNT.FoodID
-             JOIN NUTRIENT_NAME ON NUTRIENT_AMOUNT.NutrientID = NUTRIENT_NAME.NutrientID
+        SELECT NutrientName, NutrientValue, FoodDescription
+        FROM NUTRIENT_NAME
+          JOIN NUTRIENT_AMOUNT ON NUTRIENT_NAME.NutrientID = NUTRIENT_AMOUNT.NutrientID
+          JOIN FOOD_NAME ON FOOD_NAME.FoodID = NUTRIENT_AMOUNT.FoodID
         WHERE FOOD_NAME.FoodID = 20;
         ```
       </script>
@@ -762,10 +779,10 @@
         A query with many repeating table names can be simplified as follows:
 
         ```sql
-        SELECT NutrientName, NutrientValue
-        FROM FOOD_NAME fn
-             JOIN NUTRIENT_AMOUNT na ON fn.FoodID = na.FoodID
-             JOIN NUTRIENT_NAME nn ON na.NutrientID = nn.NutrientID
+        SELECT NutrientName, NutrientValue, FoodDescription
+        FROM NUTRIENT_NAME nn
+          JOIN NUTRIENT_AMOUNT na ON nn.NutrientID = na.NutrientID
+          JOIN FOOD_NAME fn ON fn.FoodID = na.FoodID
         WHERE fn.FoodID = 20;
         ```
 
