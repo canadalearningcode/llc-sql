@@ -10,7 +10,7 @@ This workshop covers the basics of data querying and analysis with the [Structur
 
 [Instructor Notes](https://docs.google.com/document/d/15DzSmrUhSoOgIyCbVnSsQEOwIaa06lhkNS71HUd5cjk/edit?usp=sharing)
 
-[Preview Slides](https://ladieslearningcode.github.io/llc-sql/slides_abridged.html)
+[Preview Slides](slides_abridged.html)
 
 
 ### Attributions
